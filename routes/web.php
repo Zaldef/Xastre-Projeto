@@ -16,3 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/cursos', function () {
+
+    $busca = request('')
+
+    return view('cursos');
+});
+
+Route::get('/cursos/{id}', function ($id) {
+    return view('curso', ['id' => $id]);
+}); 
