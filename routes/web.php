@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Route::get('/cursos', function () {
 
-    $busca = request('')
+    $busca = request('');
 
     return view('cursos');
 });

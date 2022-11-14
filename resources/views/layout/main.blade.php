@@ -14,6 +14,20 @@
         <script src="/js/scripts.js"></script>
     </head>
     <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="collapse navbar-collapse" id="navbar">
+                    <a href="/" class="navbar-brand">
+                     <img src="/img/Rex.png" alt="REX">
+                    </a>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="/" class="nav-link">Cursos</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
         @yield('content')
         <footer>
             <p>Rede de Ensino Xasteriana REX &copy; 2022</p>
