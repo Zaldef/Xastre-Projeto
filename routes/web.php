@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Use App\Http\Controllers\CursoController;
+
+Route::get('/', [CursoController::class , 'index']);
+Route::get('/cursos/cadastro', [CursoController::class , 'create']);
 
 Route::get('/cursos', function () {
 
