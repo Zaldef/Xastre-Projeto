@@ -16,15 +16,7 @@ use Illuminate\Support\Facades\Route;
 Use App\Http\Controllers\CursoController;
 
 Route::get('/', [CursoController::class , 'index']);
-Route::get('/cursos/cadastro', [CursoController::class , 'create']);
+Route::get('/cursos/create', [CursoController::class , 'create']);
 
-Route::get('/cursos', function () {
 
-    $busca = request('');
 
-    return view('cursos');
-});
-
-Route::get('/cursos/{id}', function ($id) {
-    return view('curso', ['id' => $id]);
-}); 
