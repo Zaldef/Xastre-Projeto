@@ -1,0 +1,140 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    color:green;
+}
+
+h2 {
+  color:green;
+}
+
+body {
+    min-height: 100vh;
+    padding-bottom: 100px;
+    position: relative;
+  }
+  
+  header {
+    background-color: #FFF;
+    border-bottom: 1px solid #CCC;
+  }
+  
+  .row {
+    margin: 0;
+  }
+  
+  .container-fluid {
+    padding: 0;
+  }
+  
+  .btn-primary {
+    background-color: #92c44c;
+    border: 2px solid #92c44c;
+  }
+  
+  .btn-primary:hover {
+    background-color: #92c44c;
+    border-color: #92c44c;
+  }
+  
+  /* navbar */
+  #navbar img {
+    width: 50px;
+  }
+  
+  #navbar {
+    justify-content: space-between;
+    background-color: #FFF;
+    padding: 5px 0;
+  }
+  
+  #navbar a {
+    font-size: 14px;
+    color: #383838;
+  }
+  
+  #navbar a:hover {
+    color: #acbc5c;
+  }
+  
+  /* Search Container */
+  #search-container {
+    background-image: url("../img/11.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    padding: 50px;
+    text-align: center;
+  }
+  
+  #search-container h1 {
+    color: #166248;
+    margin-bottom: 30px;
+    font-weight: 900;
+  }
+  
+  #search-container form {
+    width: 50%;
+    margin: 0 auto;
+  }
+  
+ /* Cursos list */
+  #events-container {
+    padding: 50px;
+  }
+  
+  #cursos-container h2 {
+    margin-bottom: 10px;
+  }
+  
+  #cursos-container .subtitle {
+    color: #757575;
+    margin-bottom: 30px;
+  }
+  
+  #cards-container {
+    display: flex;
+  }
+  
+  #cursos-container .card {
+    flex: 1 1 0;
+    max-width: 25%;
+    border-radius: 10px;
+    padding: 0;
+    margin: 5px;
+  }
+  
+  #cursos-container img {
+    max-height: 150px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .card .card-title {
+    color: #166248;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  
+  .card-alunos {
+    font-size: 14px;
+    color: #757575;
+  }
+  
+  /* footer */
+  footer {
+    text-align: center;
+    background-color: #353E48;
+    color: #FFF;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  footer p {
+    margin-bottom: 0;
+  }
