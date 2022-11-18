@@ -14,9 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Use App\Http\Controllers\CursoController;
+Use App\Http\Controllers\HomeController;
 
-Route::get('/', [CursoController::class , 'index']);
+Route::get('/', [HomeController::class , 'index']);
+Route::get('/cursos', [CursoController::class , 'index']);
 Route::get('/cursos/create', [CursoController::class , 'create']);
 
-
+ 
 

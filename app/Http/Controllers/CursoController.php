@@ -10,7 +10,7 @@ class CursoController extends Controller
 {
     public function index(){
         $cursos = Curso::all();
-        return view('welcome',['cursos' => $cursos]);
+        return view('cursos.cursos',['cursos' => $cursos]);
     }
 
     public function create(){

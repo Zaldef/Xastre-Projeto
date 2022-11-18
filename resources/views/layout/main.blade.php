@@ -22,7 +22,7 @@
                     </a>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="/" class="nav-link">Cursos</a>
+                            <a href="/cursos" class="nav-link">Cursos</a>
                         <li class="nav-item">
                             <a href="/" class="nav-link">Entrar</a> 
                         <li class="nav-item">
