@@ -18,7 +18,7 @@
     <div id="cards-container" class="row">
         @foreach($cursos as $curso)
         <div class="card col-md-3">
-            <img src="/img/Excel.png" alt="{{ $curso->name }}">
+            <img src="/img/Cursos/{{$curso->image}}" alt="{{ $curso->name }}">
             <div class="card-body">
                 <h5 class="card-title">{{ $curso->name }}</h5>
                 <p class="card-alunos">X/{{ $curso->alunosqtd }} Matriculados</p>

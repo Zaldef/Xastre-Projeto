@@ -6,8 +6,14 @@
 
 <div id="curso-create-container" class="col-md-6 offset-md-3">
     <h1>Novo curso</h1>
-    <form action="/cursos" method="POST">
+    <form action="/cursos" method="POST"  enctype="multipart/form-data">
       @csrf
+
+      <div class="form-group">
+        <label for="image">Imagem do Curso:</label>
+        <input type="file" id="image" name="image" class="from-control-file">
+      </div>
+
       <div class="form-group">
         <label for="title">Curso</label>
         <input type="text" class="form-control" id="name" name="name" placeholder="Nome do Curso">

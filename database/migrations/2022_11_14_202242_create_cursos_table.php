@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text("description");
             $table->string("simplified_description");
             $table->integer('alunosqtd');
+            $table->string('image');
         });
     }
 

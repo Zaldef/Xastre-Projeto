@@ -24,6 +24,15 @@ class CursoController extends Controller
         $curso->simplified_description = $request->simplified_description;
         $curso->alunosqtd = $request->alunosqtd;
 
+        if($request->hasFile('image') && $request->file('image')->isValid()) {
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $requestImage->move(public_path('img/cursos'), $imageName);
+            $curso->image = $imageName;
+
+        }
+
         $curso->save(); 
 
         return redirect('/cursos')->with('msg', 'Curso criado com sucesso!');
