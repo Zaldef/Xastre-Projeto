@@ -46,13 +46,13 @@ body {
   
   #navbar {
     justify-content: space-between;
-    background-color: #FFF;
+    background-color: #008000;
     padding: 5px 0;
   }
   
   #navbar a {
     font-size: 14px;
-    color: #383838;
+    color: #fff;
   }
   
   #navbar a:hover {
@@ -81,7 +81,7 @@ body {
   }
   
  /* Cursos list */
-  #events-container {
+  #cursos-container {
     padding: 50px;
   }
   
@@ -123,13 +123,26 @@ body {
     font-size: 14px;
     color: #757575;
   }
+  /* Cadastro Curso */
+  #curso-create-container {
+    padding: 30px
+  }
   
+  #curso-create-container label {
+    font-weight: bold;
+  }
+  
+  #curso-create-container input,
+  #curso-create-container select,
+  #curso-create-container textarea {
+    font-size: 12px;
+  }
   /* footer */
   footer {
     text-align: center;
-    background-color: #353E48;
+    background-color: #008000;
     color: #FFF;
-    padding: 20px;
+    padding: 10px;
     position: absolute;
     bottom: 0;
     width: 100%;

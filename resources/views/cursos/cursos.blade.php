@@ -21,7 +21,7 @@
             <img src="/img/Excel.png" alt="{{ $curso->name }}">
             <div class="card-body">
                 <h5 class="card-title">{{ $curso->name }}</h5>
-                <p class="card-alunos">X/45 Matriculados</p>
+                <p class="card-alunos">X/{{ $curso->alunosqtd }} Matriculados</p>
                 <a href="#" class="btn btn-primary">Saber mais</a>
                 <p></p>
             </div>

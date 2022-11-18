@@ -18,7 +18,8 @@ Use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class , 'index']);
 Route::get('/cursos', [CursoController::class , 'index']);
-Route::get('/cursos/create', [CursoController::class , 'create']);
+Route::get('/cursos/cadastro', [CursoController::class , 'create']);
+Route::post('/cursos', [CursoController::class, 'store']);
 
  
 
