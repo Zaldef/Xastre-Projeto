@@ -26,6 +26,6 @@ class CursoController extends Controller
 
         $curso->save(); 
 
-        return redirect('/cursos');
+        return redirect('/cursos')->with('msg', 'Curso criado com sucesso!');
     }
 }

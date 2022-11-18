@@ -24,15 +24,24 @@
                         <li class="nav-item">
                             <a href="/cursos" class="nav-link">Cursos</a>
                         <li class="nav-item">
-                            <a href="/" class="nav-link">Entrar</a> 
+                            <a href="/cursos/cadastro" class="nav-link">Novo Curso</a>
                         <li class="nav-item">
-                            <a href="/cursos/cadastro" class="nav-link">Novo Curso</a>   
+                            <a href="/" class="nav-link">Entrar</a>   
                         </li>
                     </ul>
                 </div>
             </nav>
         </header>
-        @yield('content')
+        <main>
+            <div class="container-fluid">
+                <div class="row">
+                    @if (session('msg')) 
+                        <p class="msg">{{session('msg')}}</p>
+                    @endif
+                    @yield('content')
+                </div>
+            </div>
+        </main>
         <footer>
             <p>Rede de Ensino Xasteriana REX &copy; 2022</p>
         </footer>
