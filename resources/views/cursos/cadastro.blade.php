@@ -28,10 +28,15 @@
         <label for="title">Descrição simplificada:</label>
         <textarea name="simplified_description" id="simplified_description" class="form-control" placeholder="Resumo do curso"></textarea>
       </div>
+
+      <div class="form-group">
+        <label for="title">Quantos alunos minimos?</label>
+        <input type="text" class="form-control" id="alunosqtdmin" name="alunosqtdmin" placeholder="Quantidade de Alunos minimos">
+      </div> 
       
       <div class="form-group">
         <label for="title">Quantos alunos maximos?</label>
-        <input type="text" class="form-control" id="alunosqtd" name="alunosqtd" placeholder="Quantidade de Alunos">
+        <input type="text" class="form-control" id="alunosqtdmax" name="alunosqtdmax" placeholder="Quantidade de Alunos maximos">
       </div> 
 
       <input type="submit" class="btn btn-primary" value="Criar Curso">
