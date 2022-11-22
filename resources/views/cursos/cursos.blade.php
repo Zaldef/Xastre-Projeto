@@ -9,7 +9,7 @@
 
 <div id="search-container" class="col-md-12">
     <h1>Busque um curso</h1>
-    <form action="">
+    <form action="/cursos" method="GET">
         <input type="text" id="search" name="search" class="form-control" placeholder="Procurar...">
     </form>
 </div>
@@ -27,6 +27,11 @@
             </div>
         </div>
         @endforeach
+        @if(count($cursos) == 0 && $search)
+            <p>Não foi possível encontrar nenhum ecurso com {{ $search }}! <a href="/cursos">Ver todos os cursos</a></p>
+        @elseif(count($cursos) == 0)
+            <p>Não há cursos disponíveis</p>
+        @endif
 
 
 @endsection 
