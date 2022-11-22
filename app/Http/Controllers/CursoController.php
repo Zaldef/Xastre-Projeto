@@ -9,15 +9,8 @@ use App\Models\Curso;
 class CursoController extends Controller
 {
     public function index(){
-        $search = request('search');
-        if($search) {
-            $cursos= Curso::where([
-                ['name', 'like', '%'.$search.'%']
-            ])->get();
-        } else {
-            $cursos = Curso::all();
-        }
-        return view('cursos.cursos',['cursos' => $cursos, 'search' => $search]);
+        $cursos = Curso::all();
+        return view('cursos.cursos',['cursos' => $cursos]);
     }
 
     public function create(){
@@ -29,8 +22,7 @@ class CursoController extends Controller
         $curso->name = $request->name;
         $curso->description = $request->description;
         $curso->simplified_description = $request->simplified_description;
-        $curso->alunosqtdmin = $request->alunosqtdmin;
-        $curso->alunosqtdmax = $request->alunosqtdmax;
+        $curso->alunosqtd = $request->alunosqtd;
         if($request->hasFile('image') && $request->file('image')->isValid()) {
             $requestImage = $request->image;
             $extension = $requestImage->extension();
