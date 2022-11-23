@@ -26,7 +26,13 @@
                         <li class="nav-item">
                             <a href="/cursos/cadastro" class="nav-link">Novo Curso</a>
                         <li class="nav-item">
-                            <a href="/" class="nav-link">Entrar</a>   
+                            <a href="/alunos" class="nav-link">Alunos</a>
+                        <li class="nav-item">
+                            <a href="/alunos/cadastro" class="nav-link">Novo Aluno</a>
+                        <li class="nav-item">
+                            <a href="/professores" class="nav-link">Professores</a>
+                        <li class="nav-item">
+                            <a href="/professores/cadastro" class="nav-link">Novo Professor</a>
                         </li>
                     </ul>
                 </div>

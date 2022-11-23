@@ -16,6 +16,11 @@ return new class extends Migration
         Schema::create('professors', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->char('name', 100);
+            $table->string("cpf")->unique();
+            $table->string("endereco");
+            $table->string('email')->unique();
+            $table->string('senha');
         });
     }
 

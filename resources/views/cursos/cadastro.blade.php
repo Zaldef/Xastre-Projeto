@@ -1,6 +1,6 @@
 @extends('layout.main')
 
-@section('title','REX Cursos')
+@section('title','Novo Curso')
     
 @section('content')
 
