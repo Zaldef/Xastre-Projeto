@@ -23,9 +23,16 @@ return new class extends Migration
             $table->integer('alunosqtdmax');
             $table->string('image');
             $table->char('professor', 50)->nullable(Não atribuído)->unique();
-            
+
         });
     }
+
+    schema::table('cursos', function(Blueprint $table){
+        /*criando chave estrangeira*/
+        $table->foreing('id_alunos')->references('id')->on('alunos')->onDelete('cascade');
+        $table->foreing('id_professor')->references('id')->on('professors')->onDelete('cascade');
+    });
+
 
     /**
      * Reverse the migrations.

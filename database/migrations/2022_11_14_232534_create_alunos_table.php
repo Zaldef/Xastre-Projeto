@@ -19,6 +19,11 @@ return new class extends Migration
         });
     }
 
+    schema::table('alunos', function(Blueprint $table){
+        /*criando chave estrangeira*/
+        $table->foreing('id_cursos')->references('id')->on('cursos')->onDelete('cascade');
+    });
+
     /**
      * Reverse the migrations.
      *

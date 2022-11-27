@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Aluno extends Model
 {
     use HasFactory;
+
+    public function Id_Cursos()
+    {
+        return $this->hasMany(Curso::class, 'id_cursos');
+    }
 }
