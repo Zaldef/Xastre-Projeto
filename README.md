@@ -1,8 +1,8 @@
 
-# Laravel Template
+# Projeto final Larave;
 
 ### Passo a passo
-Clone Repositório criado a partir do template, entre na pasta e execute os comandos abaixo:
+Baixe a ultima release, entre na pasta e execute os comandos abaixo:
 
 Crie o Arquivo .env
 ```sh
@@ -12,7 +12,7 @@ cp .env.example .env
 
 Atualize as variáveis de ambiente do arquivo .env
 ```dosini
-APP_NAME=Laravel
+APP_NAME=REX
 APP_URL=http://localhost:8080
 
 DB_PASSWORD=root
@@ -46,6 +46,11 @@ Subir migrations
 php artisan migrate
 ```
 
+Instalar dependecias (Sistema de login)
+```sh
+composer require laravel/ui
+```
+
 
 Acesse o projeto
 [http://localhost:8080](http://localhost:8080)
@@ -53,28 +58,6 @@ Acesse o projeto
 Acesse o phpmyadmin
 [http://localhost:8081](http://localhost:8081)
 
-API de categorias e filmes:
-https://www.learn-laravel.cf/
-
-Rotas:
-- (get) /categories
-- (get) /category/{id}
-- (get) /movies
-- (get) /movie/{id}
-
-### Como realizar requisições HTTP get:
-Adicionar no arquivo web.php e acesse a rota [http://localhost:8080/requisicao](http://localhost:8080/requisicao)
-```php
-Route::get('/requisicao', function () {
-    $json = \Illuminate\Support\Facades\Http::get('https://learn-laravel.cf/movie/1')->body();
-    dd($json);
-});
-```
-Em caso de sucesso irá aparecer a mensagem (em linha única sem formatação):
-```json
-{
-    "id": 1,
-    "name": "Zack and Miri Make a Porno",
-    "category_id": 6,
-}
-```
+## Autores
+| [<img src="https://avatars.githubusercontent.com/u/78030935?v=4" width=115><br><sub>Zaldef</sub>](https://github.com/Zaldef) |  [<img src="https://avatars.githubusercontent.com/u/111884977?v=4" width=115><br><sub>leticiamaiza</sub>](https://github.com/leticiamaiza) | 
+| :---: | :---: |
