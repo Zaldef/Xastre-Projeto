@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <link rel="shortcut icon" href="rex.ico" type="image/x-icon">
         <title>@yield('title')</title>
 
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans" rel="stylesheet">
