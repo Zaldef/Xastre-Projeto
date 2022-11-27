@@ -1,5 +1,5 @@
 
-# Projeto final Larave;
+# Projeto final Laravel
 
 ### Passo a passo
 Baixe a ultima release, entre na pasta e execute os comandos abaixo:
@@ -36,6 +36,11 @@ Instalar as dependências do projeto
 composer install
 ```
 
+Instalar dependecias (Sistema de login)
+```sh
+composer require laravel/ui
+```
+
 
 Gerar a key do projeto Laravel
 ```sh
@@ -46,10 +51,6 @@ Subir migrations
 php artisan migrate
 ```
 
-Instalar dependecias (Sistema de login)
-```sh
-composer require laravel/ui
-```
 
 
 Acesse o projeto
