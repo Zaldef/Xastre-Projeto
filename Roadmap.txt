@@ -1,0 +1,35 @@
+Sou uma escola de educação técnica de informática. (REX - Rede de ensino xasteriana)
+- LOGIN: 
+	Secretaria/Professor/Aluno; 
+	Um acesso de ADM;
+	Gerar e guardar um usuario para secretaria;
+	Deve existir a possibilidade de troca de senha
+-Matricula
+	aluno: 
+		Nome
+		CPF
+		Endereço
+		Um filme de preferencia
+		User
+		Senha
+		Data e hora do ultimo acesso
+		X Cursos
+
+	Professor:
+		Nome
+		CPF
+		Endereço
+		User
+		Senha
+		Avatares pré definidos no sistema
+		X Cursos
+
+	Curso:
+		Status ("Matrículas Abertas - Mínimo de alunos não atingido!", "Matrículas Abertas - Curso acontecerá!", "Matrículas Encerradas")	
+ 
+
+
+
+-BONUS:
+sistema de recuperação de senha
+uso de e-mails para confirmar informações 
