@@ -1,10 +1,10 @@
 
 # Projeto final PI:WEB 
-Seguindo as orientações, desenvolvemos um controle escolar em laravel para a Rede de Ensino Xasteriana REX. O projeto está incompleto pois um dos integrantes deste grupo não cumpriu com as obrigações e acabou sendo removido, como foi de ultima hora, não houve tempo para a conclusão deste site.
+Seguindo as orientações, desenvolvemos um controle escolar em laravel para a Rede de Ensino Xasteriana REX(Nome ficticio). 
     
 ## :hammer: Funcionalidades do projeto :wrench:
-- `Sistema de Login & Permissions` incompleto
-- `CRUD de alunos/professores/cursos` incompleto
+- `Sistema de Login & Permissions` 
+- `CRUD de alunos/professores/cursos` 
 
 
 
