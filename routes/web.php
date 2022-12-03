@@ -26,6 +26,13 @@ Route::get('/user/edit/{id}', [HomeController::class,'edit']);
 Route::put('/user/update/{id}', [HomeController::class,'update']);
 Route::delete('/user/{id}', [HomeController::class,'delete']);
 
+Route::get('/cursos', [CursoController::class , 'index']);
+Route::get('/cursos/cadastro', [CursoController::class , 'create']);
+Route::get('/cursos/{id}', [CursoController::class , 'show']);
+Route::post('/cursos', [CursoController::class, 'store']);
+Route::delete('/cursos/{id}', [CursoController::class,'delete']);
+Route::get('/cursos/edit/{id}', [CursoController::class,'edit']);
+Route::put('/cursos/update/{id}', [CursoController::class,'update']);
 
 Auth::routes();
 

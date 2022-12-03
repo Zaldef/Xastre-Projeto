@@ -21,9 +21,7 @@ return new class extends Migration
             $table->string("simplified_description");
             $table->integer('alunosqtdmin');
             $table->integer('alunosqtdmax');
-            $table->string('image');
-            $table->char('professor', 50)->nullable("Não atribuído")->unique();
-            
+            $table->string('image');    
         });
     }
 

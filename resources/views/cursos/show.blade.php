@@ -1,8 +1,12 @@
-@extends('layouts.main')
+@extends('layouts.app')
 
-@section('title', $curso->name)
-    
+@section('title', 'Editando:' . $curso->nome)
+
 @section('content')
+
+@guest
+<h1>Você não está logado. Faça o <a href="/">LOGIN</a>!</h1>
+@else
 
 <div class="col-md-10 offset-md-1">
     <div class="row">
@@ -23,6 +27,12 @@
         <h3>Sobre o curso:</h3>
         <p class="curso-description">{{$curso->description}}</p>
       </div>
+      <div class="buttons-container">
+        <a href="/cursos/edit/{{ $curso->id }}" class="btn btn-primary"><ion-icon name="pencil-outline"></ion-icon> Editar</a>
+        <form action="/cursos/{{ $curso->id }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger"><ion-icon name="trash-outline"></ion-icon> Deletar</button>
     </div>
   </div>
 

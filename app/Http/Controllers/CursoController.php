@@ -15,7 +15,7 @@ class CursoController extends Controller
                 ['name', 'like', '%'.$search.'%']
             ])->get();
         } else {
-            $cursos = Curso::all();
+            $cursos = Curso::paginate(4);
         }
         return view('cursos.cursos',['cursos' => $cursos, 'search' => $search]);
     }
@@ -26,18 +26,14 @@ class CursoController extends Controller
 
     public function store(Request $request){
         $curso = new Curso;
+
         $curso->name = $request->name;
         $curso->description = $request->description;
         $curso->simplified_description = $request->simplified_description;
         $curso->alunosqtdmin = $request->alunosqtdmin;
         $curso->alunosqtdmax = $request->alunosqtdmax;
-        if($request->hasFile('image') && $request->file('image')->isValid()) {
-            $requestImage = $request->image;
-            $extension = $requestImage->extension();
-            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
-            $requestImage->move(public_path('img/cursos'), $imageName);
-            $curso->image = $imageName;
-        }
+        $curso->image = $request->image;
+        
         $curso->save(); 
 
         return redirect('/cursos')->with('msg', 'Curso criado com sucesso!');
@@ -45,7 +41,21 @@ class CursoController extends Controller
 
     public function show($id){
         $curso = Curso::FindOrFail($id);
-
         return view('cursos.curso', ['curso'=> $curso]);
+    }
+
+    public function delete($id){
+        Curso::findOrFail($id)->delete();
+        return redirect('/cursos')->with('msg', 'Curso excluído com sucesso!');
+    }
+    
+    public function edit($id){
+        $curso = Curso::findOrFail($id);
+        return view('cursos.edit', ['curso' => $curso]);
+    }
+
+    public function update(Request $request){
+        Curso::findOrFail($request->id)->update($request->all());
+        return redirect('/cursos')->with('msg', 'Curso editado com sucesso!');
     }
 }

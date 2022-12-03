@@ -1,9 +1,12 @@
-@extends('layouts.main')
+@extends('layouts.app')
 
 @section('title','REX Cursos')
     
 @section('content')
 
+@guest
+<h1>Você não está logado. Faça o <a href="/"> login</a>!</h1>
+@else
 <h1>Cursos</h1>
 
 
@@ -14,7 +17,11 @@
     </form>
 </div>
 <div id="cursos-container" class="col-md-12">
-    <h2>Todos os Cursos</h2>
+    @if($search)
+    <h2>Buscando por: {{ $search }}</h2><br> 
+@else
+    <h2>Todos os Cursos</h2><br>  
+@endif
     <div id="cards-container" class="row">
         @foreach($cursos as $curso)
         <div class="card col-md-3">
@@ -32,6 +39,5 @@
         @elseif(count($cursos) == 0)
             <p>Não há cursos disponíveis</p>
         @endif
-
-
+@endguest
 @endsection 

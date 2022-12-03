@@ -1,6 +1,24 @@
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+container-fluid {
+  padding: 0;
+}
+
 header{
   background-color: #ece4d4;
   border-bottom: 1px solid #c2bbaf;
+}
+
+.msg{
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  width: 100%;
+  margin-bottom: 0;
+  text-align: center;
+  padding: 10px;
 }
 
 .navbar-brand img {
@@ -38,7 +56,7 @@ header{
   color: #171614;
 
 }
-
+/* info-container */
 #info-container{
   background-image: radial-gradient(circle, #ffffff, #efefef, #dfdfdf, #cfcfcf, #c0c0c0);
   border-radius: 15px;
@@ -58,7 +76,11 @@ header{
 }
 
 h1 {
-  color: #5a3a28;
+  color: green;
+}
+
+h2 {
+  color: green;
 }
 
 footer {
@@ -73,4 +95,169 @@ footer {
 
 footer p {
   margin-bottom: 0;
+}
+
+/* Search Container */
+#search-container {
+  background-image: url("../img/Plano.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  padding: 50px;
+  text-align: center;
+}
+
+#search-container h1 {
+  color: #166248;
+  margin-bottom: 30px;
+  font-weight: 900;
+}
+
+#search-container form {
+  width: 50%;
+  margin: 0 auto;
+}
+
+/* Cursos list */
+#cursos-container {
+  padding: 50px;
+}
+
+#cursos-container h2 {
+  margin-bottom: 10px;
+}
+
+#cursos-container .subtitle {
+  color: #757575;
+  margin-bottom: 30px;
+}
+
+
+#cards-container {
+  display: flex;
+}
+
+#cursos-container .card {
+  flex: 1 1 24%;
+  max-width: 25%;
+  border-radius: 10px;
+  padding: 0;
+  margin: .5%px;
+}
+
+#cursos-container img {
+  max-height: 150px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+
+body {
+  min-height: 100vh;
+  padding-bottom: 100px;
+  position: relative;
+}
+
+
+
+.row {
+  margin: 0;
+}
+
+
+
+
+
+/* Cursos list */
+#cursos-container {
+  padding: 50px;
+}
+
+#cursos-container h2 {
+  margin-bottom: 10px;
+}
+
+#cursos-container .subtitle {
+  color: #757575;
+  margin-bottom: 30px;
+}
+
+#cards-container {
+  display: flex;
+}
+
+#cursos-container .card {
+  flex: 1 1 24%;
+  max-width: 25%;
+  border-radius: 10px;
+  padding: 0;
+  margin: .5%px;
+}
+
+#cursos-container img {
+  max-height: 150px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card .card-title {
+  color: #166248;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.card-alunos {
+  font-size: 14px;
+  color: #757575;
+}
+/* Cadastro Curso */
+#curso-create-container {
+  padding: 30px
+}
+
+#curso-create-container label {
+  font-weight: bold;
+}
+
+#curso-create-container input,
+#curso-create-container select,
+#curso-create-container textarea {
+  font-size: 12px;
+}
+
+#image-container,
+#info-container {
+margin-top: 30px;
+}
+
+#image-container img {
+border-radius: 10px;
+}
+
+#info-container h1 {
+font-size: 36px;
+font-weight: 900;
+}
+
+#info-container p {
+margin: 0;
+font-size: 14px;
+display: flex;
+}
+
+#info-container h3,
+#description-container h3 {
+font-size: 20px;
+font-weight: bold;
+}
+
+#info-container ion-icon {
+font-size: 20px;
+color: #92c44c;
+margin-right: 5px;
+}
+
+#info-container #event-submit {
+margin: 20px 0;
 }

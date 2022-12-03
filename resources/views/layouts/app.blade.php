@@ -10,12 +10,13 @@
     <title>@yield('title')</title>
 
     <!-- Fonts -->
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans" rel="stylesheet">
 
     <!-- Scripts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style02.css">
+    <script src="/js/scripts.js"></script>
 
 </head>
 <body>
@@ -50,6 +51,9 @@
                                     </li>
                                 @endif
                             @else
+                            <li class="nav-item">
+                                <a href="/cursos" class="nav-link">Cursos</a>
+                            </li>
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ Auth::user()->name }}
@@ -74,6 +78,12 @@
             </nav>
         </header>
         <main class="py-4">
+            <div class="container-fluid">
+                <div class="row">
+                    @if (session('msg')) 
+                        <p class="msg">{{session('msg')}}</p>
+                    @endif
+                    
             @yield('content')
             <footer>
                 <p>Rede de Ensino Xasteriana REX &copy; 2022</p>
