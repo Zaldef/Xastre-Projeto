@@ -20,7 +20,11 @@ Use App\Http\Controllers\HomeController;
 
 
 Route::get('/', [HomeController::class , 'index']);
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index']);
+Route::get('/user/show', [HomeController::class,'show']);
+Route::get('/user/edit/{id}', [HomeController::class,'edit']);
+Route::put('/user/update/{id}', [HomeController::class,'update']);
+Route::delete('/user/{id}', [HomeController::class,'delete']);
 
 Route::get('/cursos', [CursoController::class , 'index']);
 Route::get('/cursos/cadastro', [CursoController::class , 'create']);
@@ -37,11 +41,5 @@ Route::get('/professores/cadastro', [ProfessorController::class , 'create']);
 Route::get('/professores/{id}', [ProfessorController::class , 'show']);
 Route::post('/professores', [ProfessorController::class, 'store']);
 
-
-
- 
-
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
