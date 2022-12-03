@@ -20,6 +20,7 @@ Use App\Http\Controllers\HomeController;
 
 
 Route::get('/', [HomeController::class , 'index']);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/cursos', [CursoController::class , 'index']);
 Route::get('/cursos/cadastro', [CursoController::class , 'create']);
@@ -40,3 +41,7 @@ Route::post('/professores', [ProfessorController::class, 'store']);
 
  
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
