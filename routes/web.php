@@ -26,20 +26,6 @@ Route::get('/user/edit/{id}', [HomeController::class,'edit']);
 Route::put('/user/update/{id}', [HomeController::class,'update']);
 Route::delete('/user/{id}', [HomeController::class,'delete']);
 
-Route::get('/cursos', [CursoController::class , 'index']);
-Route::get('/cursos/cadastro', [CursoController::class , 'create']);
-Route::get('/cursos/{id}', [CursoController::class , 'show']);
-Route::post('/cursos', [CursoController::class, 'store']);
-
-Route::get('/alunos', [AlunoController::class , 'index']);
-Route::get('/alunos/cadastro', [AlunoController::class , 'create']);
-Route::get('/alunos/{id}', [AlunoController::class , 'show']);
-Route::post('/alunos', [AlunoController::class, 'store']);
-
-Route::get('/professores', [ProfessorController::class , 'index']);
-Route::get('/professores/cadastro', [ProfessorController::class , 'create']);
-Route::get('/professores/{id}', [ProfessorController::class , 'show']);
-Route::post('/professores', [ProfessorController::class, 'store']);
 
 Auth::routes();
 

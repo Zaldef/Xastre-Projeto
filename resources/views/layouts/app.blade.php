@@ -26,7 +26,7 @@
                     <a class="navbar-brand" href="/home">
                         <img src="/img/REX.png" alt="REX">
                     </a>
-                    <a class="dropdown-item" href="/users/show">
+                    <a class="dropdown-item" href="/user/show">
                         {{ __('Ver perfil') }}
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
