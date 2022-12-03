@@ -20,6 +20,7 @@ Use App\Http\Controllers\HomeController;
 
 
 Route::get('/', [HomeController::class , 'index']);
+
 Route::get('/cursos', [CursoController::class , 'index']);
 Route::get('/cursos/cadastro', [CursoController::class , 'create']);
 Route::get('/cursos/{id}', [CursoController::class , 'show']);
