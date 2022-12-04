@@ -57,10 +57,7 @@ header{
 
 }
 /* info-container */
-#info-container{
-  background-image: radial-gradient(circle, #ffffff, #efefef, #dfdfdf, #cfcfcf, #c0c0c0);
-  border-radius: 15px;
-}
+
 
 #info-container form{
   display: inline-block;
@@ -132,6 +129,11 @@ footer p {
   margin-bottom: 30px;
 }
 
+
+.cards-container p{
+  color: #fff;
+  padding: 30px;
+}
 
 #cards-container {
   display: flex;

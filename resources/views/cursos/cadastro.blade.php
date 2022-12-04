@@ -10,10 +10,6 @@
     <form action="/cursos" method="POST"  enctype="multipart/form-data">
       @csrf
       <div class="form-group">
-        <label for="image">Imagem do Curso:</label>
-        <input type="file" id="image" name="image" class="from-control-file">
-      </div>
-      <div class="form-group">
         <label for="title">Curso</label>
         <input type="text" class="form-control" id="name" name="name" placeholder="Nome do Curso">
       </div>  
@@ -34,19 +30,19 @@
         <input type="text" class="form-control" id="alunosqtdmax" name="alunosqtdmax" placeholder="Quantidade de Alunos maximos">
       </div> 
       <div id="cursos-form" class="form-group">
-        <label for="img">Escolha uma imgem para esse curso:</label>
+        <label for="img">Escolha uma imagem para esse curso:</label>
     </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="image" value="Excel">
-            <img src="/img/cursos/Excel.jpg">
+            <input class="form-check-input" type="radio" name="image" value="curso1">
+            <img src="/img/cursos/curso1.jpg">
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="image" value="Word">
-            <img src="/img/cursos/Word.jpg">
+            <input class="form-check-input" type="radio" name="image" value="curso2">
+            <img src="/img/cursos/curso2.jpg">
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="image" value="PowerPoint">
-            <img src="/img/cursos/PowerPoint.jpg">
+            <input class="form-check-input" type="radio" name="image" value="curso3">
+            <img src="/img/cursos/curso3.jpg">
         </div>
       <input type="submit" class="btn btn-primary" value="Criar Curso">
     </form>

@@ -40,6 +40,6 @@ class HomeController extends Controller
 
     public function update(Request $request){
         User::findOrFail($request->id)->update($request->all());
-        return redirect('/home');
+        return redirect('user/show');
     }   
 }

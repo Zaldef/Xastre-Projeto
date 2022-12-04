@@ -15,7 +15,7 @@ class CursoController extends Controller
                 ['name', 'like', '%'.$search.'%']
             ])->get();
         } else {
-            $cursos = Curso::paginate(4);
+            $cursos = Curso::all();
         }
         return view('cursos.cursos',['cursos' => $cursos, 'search' => $search]);
     }
@@ -41,7 +41,7 @@ class CursoController extends Controller
 
     public function show($id){
         $curso = Curso::FindOrFail($id);
-        return view('cursos.curso', ['curso'=> $curso]);
+        return view('cursos.show', ['curso'=> $curso]);
     }
 
     public function delete($id){

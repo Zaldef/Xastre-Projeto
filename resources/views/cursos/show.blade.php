@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Editando:' . $curso->nome)
+@section('title', 'Editando:' . $curso->name)
 
 @section('content')
 
@@ -35,5 +35,5 @@
             <button type="submit" class="btn btn-danger"><ion-icon name="trash-outline"></ion-icon> Deletar</button>
     </div>
   </div>
-
+@endguest
 @endsection 
