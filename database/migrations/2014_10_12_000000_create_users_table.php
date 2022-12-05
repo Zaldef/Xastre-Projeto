@@ -23,7 +23,8 @@ return new class extends Migration
             $table->string('cpf')->nullable();
             $table->string('endereco')->nullable();
             $table->string('filme')->nullable();
-            $table->string('image')->nullable(); 
+            $table->string('image')->nullable();
+            $table->timestamp('ultimo_acesso')->nullable(); 
             $table->rememberToken();
             $table->timestamps();
         });
