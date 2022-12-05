@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -41,7 +42,10 @@ class HomeController extends Controller
     }
 
     public function update(Request $request){
-        User::findOrFail($request->id)->update($request->all());
+        $senha = $request->password;
+        $user = User::findOrFail($request->id);
+        $user->update($request->all());
+        $user->update(['password' => Hash::make($senha)]);
         return redirect('user/show');
     }   
 }

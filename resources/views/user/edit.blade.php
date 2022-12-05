@@ -34,7 +34,13 @@
             <label for="title">Filme:</label>
             <input type="text" class="form-control" id="filme" name="filme" placeholder="Filme" value="{{ Auth::user()->filme }}">
         </div>
-        <input type="submit" class="btn btn-primary" value="Salvar">
+
+        <div class="form-group">
+            <label for="title">Senha</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Nova Senha">
+       </div>
+
+       <input type="submit" class="btn btn-primary" value="Salvar">
     </form>
 </div>
 @endsection

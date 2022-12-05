@@ -20,8 +20,8 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('acesso');
-            $table->string('cpf');
-            $table->string('endereco');
+            $table->string('cpf')->nullable();
+            $table->string('endereco')->nullable();
             $table->string('filme')->nullable();
             $table->string('image')->nullable(); 
             $table->rememberToken();
