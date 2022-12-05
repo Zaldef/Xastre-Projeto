@@ -32,6 +32,11 @@
             <label for="title">Endereço:</label>
             <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Endereço" value="{{ Auth::user()->endereco }}">
         </div>
+
+        <div id="cursos-form" class="form-group">
+            <label for="title">Filme:</label>
+            <input type="text" class="form-control" id="filme" name="filme" placeholder="Filme" value="{{ Auth::user()->filme }}">
+        </div>
         <input type="submit" class="btn btn-primary" value="Salvar">
     </form>
 </div>

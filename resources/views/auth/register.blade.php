@@ -14,7 +14,7 @@
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Nome') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -33,14 +33,13 @@
                             <div class="col-md-6 form-check form-check-inline">
                                
                                     <div class="form-check">
-                                        <input type="radio" class="form-check-input" id="acesso" name="acesso" value="Professor"> Professor        
-                                        <label class="form-check-label" for="radio"></label>
-                                    </div>
-                                    <div class="form-check">
                                         <input type="radio" class="form-check-input" id="acesso" name="acesso" value="Aluno"> Aluno
                                         <label class="form-check-label" for="radio"></label>
                                     </div>
-
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" id="acesso" name="acesso" value="Professor"> Professor        
+                                        <label class="form-check-label" for="radio"></label>
+                                    </div>
                                     @error('acesso')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -84,6 +83,20 @@
                                 <input id="endereco" type="endereco" class="form-control @error('endereco') is-invalid @enderror" name="endereco" value="{{ old('endereco') }}" required autocomplete="endereco">
 
                                 @error('endereco')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="filme" class="col-md-4 col-form-label text-md-end">{{ __('Filme') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="filme" type="filme" class="form-control @error('filme') is-invalid @enderror" name="filme" value="{{ old('filme') }}" required autocomplete="filme">
+
+                                @error('filme')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

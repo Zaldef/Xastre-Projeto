@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('acesso');
             $table->string('cpf');
             $table->string('endereco');
+            $table->string('filme');
             $table->string('image'); 
             $table->rememberToken();
             $table->timestamps();

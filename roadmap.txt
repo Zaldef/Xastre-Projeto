@@ -1,7 +1,22 @@
 Arrumar css
-imagens de cursos nao aparecendo na view cursos e cursos/{id}
+
+
 Mecanica de search bugando a view cursos "count(): Argument #1 ($value) must be of type Countable|array, App\Models\Curso given"
-        @if(count($cursos) == 0 && $search)
-        <p>Não foi possível encontrar nenhum curso com {{ $search }}! <a href="/cursos">Ver todos os cursos</a></p>
-        @elseif(count($cursos) == 0)
-        <p>Não há cursos disponíveis</p>
+        /cursos/cursos.blade.php
+                @if(count($cursos) == 0 && $search)
+                <p>Não foi possível encontrar nenhum curso com {{ $search }}! <a href="/cursos">Ver todos os cursos</a></p>
+                @elseif(count($cursos) == 0)
+                <p>Não há cursos disponíveis</p>
+                @endif
+        /controllers/CursoController.php
+                public function index(){
+                $search = request('search');
+                if($search) {
+                $cursos= Curso::where([
+                        ['name', 'like', '%'.$search.'%']
+                ])->get();
+                } else {
+                $cursos = Curso::all();
+                }
+                return view('cursos.cursos',['cursos' => $cursos, 'search' => $search]);
+        }
