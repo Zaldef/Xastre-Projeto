@@ -4,14 +4,10 @@
 
 @section('content')
 
-@guest
-<h1>Você não está logado. Faça o <a href="/">LOGIN</a>!</h1>
-@else
-
 <div class="col-md-10 offset-md-1">
     <div class="row">
       <div id="image-container" class="col-md-6">
-        <img src="/img/cursos/{{ $curso->image }}" class="img-fluid" alt="{{ $curso->name }}">
+        <img src="/img/cursos/{{ $curso->image }}.jpg" class="img-fluid" alt="{{ $curso->name }}">
       </div>
       <div id="info-container" class="col-md-6">
         <h1>{{ $curso->name }}</h1>
@@ -19,8 +15,12 @@
        <p class="curso-alunosqtd"><ion-icon name="people-outline"></ion-icon> Alunos Minimos: {{ $curso->alunosqtdmin}}</p>
        <p class="curso-alunosqtd"><ion-icon name="people-outline"></ion-icon> Alunos Matriculados: $curso_id->aluno_id</p>
        <p class="curso-alunosqtd"><ion-icon name="people-outline"></ion-icon> Alunos Máximos: {{ $curso->alunosqtdmax}}</p>
+       @if($curso->user_id == null)
+       <p class="curso-alunosqtd"><ion-icon name="person-outline"></ion-icon> Sem atribuição de professor até o momento!</p>
+       @else
+        <p class="curso-alunosqtd"><ion-icon name="person-outline"></ion-icon> Professor: {{ $cursoProfessor->name }}</p>
+       @endif
        <p class="curso-alunosqtd"><ion-icon name="file-tray-full-outline"></ion-icon> Status: Matrículas Abertas/Mínimo de alunos não atingido!/Matrículas Abertas - Curso acontecerá!/Matrículas Encerradas</p>
-       <p class="curso-alunosqtd"><ion-icon name="person-outline"></ion-icon> Professor: $professor->curso_id </p>  
         <a href="#" class="btn btn-primary" id="curso-submit">Encerrar Matriculas</a>
       </div>
       <div class="col-md-12" id="description-container">
@@ -33,7 +33,19 @@
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-danger"><ion-icon name="trash-outline"></ion-icon> Deletar</button>
+          </form>    
+          @if(Auth::user()->acesso == 'Professor' && $curso->user_id == null)
+              <form action="/cursos/joinP/{{$curso->id}}" method="POST"> 
+                  @csrf
+                  @method('PUT')
+                  <input type="submit" class="btn btn-primary" value="Assumir curso">
+              </form>
+          @elseif(Auth::user()->acesso == 'Aluno' && count($Curso_A_P) == 0)
+              <form action="/cursos/joinA/{{$curso->id}}" method="POST">
+                  @csrf
+                  <input type="submit" class="btn btn-primary" value="Matricular-se">
+              </form>
+          @endif
     </div>
   </div>
-@endguest
 @endsection 

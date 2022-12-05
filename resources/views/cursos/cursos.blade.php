@@ -4,11 +4,7 @@
     
 @section('content')
 
-@guest
-<h1>Você não está logado. Faça o <a href="/"> LOGIN</a>!</h1>
-@else
 <h1>Cursos</h1>
-
 
 <div id="search-container" class="col-md-12">
     <h1>Busque um curso</h1>
@@ -36,5 +32,4 @@
         </div>
         @endforeach
 
-@endguest
 @endsection 

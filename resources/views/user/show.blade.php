@@ -4,10 +4,6 @@
 
 @section('content')
 
-@guest
-<h1>Você não está logado. Faça o <a href="/">LOGIN</a>!</h1>
-@else
-
 <div class="col-md10 offset-md-1">
     <div class="row">
 
@@ -35,5 +31,4 @@
 
     </div>
 </div>
-@endguest
 @endsection

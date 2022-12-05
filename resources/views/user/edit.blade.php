@@ -3,9 +3,6 @@
 @section('title', 'Editando: ' . Auth::user()->acesso)
 
 @section('content')
-@guest
-<h1>Você não está logado. Faça o <a href="/">LOGIN</a>!</h1>
-@else
 
 <div id="edit-create-container" class="col-md-6 offset-md-3">
     <h1>Edite as informações</h1>
@@ -40,5 +37,4 @@
         <input type="submit" class="btn btn-primary" value="Salvar">
     </form>
 </div>
-@endguest
 @endsection

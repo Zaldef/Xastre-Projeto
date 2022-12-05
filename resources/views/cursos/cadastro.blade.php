@@ -2,9 +2,7 @@
 @section('title','Novo Curso')
 @section('content')
 
-@guest
-<h1>Você não está logado. Faça o <a href="/">LOGIN</a>!</h1>
-@else
+
 <div id="curso-create-container" class="col-md-6 offset-md-3">
     <h1>Novo curso</h1>
     <form action="/cursos" method="POST"  enctype="multipart/form-data">
@@ -47,5 +45,4 @@
       <input type="submit" class="btn btn-primary" value="Criar Curso">
     </form>
   </div>
-@endguest
 @endsection
