@@ -39,7 +39,7 @@
                 </tbody>
             </table>
         @else
-            <p>Você não possui cursos a fazer, <a href="/cursos">Matricule-se em algum</a></p>
+            <p>Você não possui cursos a fazer, <a href="/cursos">Matricule-se!</a></p>
         @endif
         @elseif(Auth::user()->acesso == 'Professor')
         @if(count($curso_P) > 0)

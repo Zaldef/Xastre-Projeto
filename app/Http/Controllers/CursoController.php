@@ -32,6 +32,7 @@ class CursoController extends Controller
         $curso->alunosqtdmin = $request->alunosqtdmin;
         $curso->alunosqtdmax = $request->alunosqtdmax;
         $curso->image = $request->image;
+        $curso->user_id = null;
         $curso->save(); 
 
         return redirect('/cursos')->with('msg', 'Curso criado com sucesso!');
@@ -42,7 +43,7 @@ class CursoController extends Controller
         $user = auth()->user();
         $curso_A_P = $curso->users;
         $count = 0;
-        foreach($cursos_A_P as $user){
+        foreach($curso_A_P as $user){
             if($user->id == $user->id){
                 $count = 1;
             }

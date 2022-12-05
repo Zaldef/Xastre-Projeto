@@ -26,6 +26,127 @@ class UserFactory extends Factory
         ];
     }
 
+    public function aluno1()
+    {
+        return $this->state (function (array $attributes){
+            return [
+                'name'      => "Maiza Silva Santos",
+                'email'     => "aluno1@example.com",
+                'password'  => Hash::make("123456789"),
+                'acesso'    => "aluno",
+                'cpf'       => "25678910348",
+                'endereco'  => "124856369",
+                'filme'     => "Matrix",
+            ];
+        });
+    }
+
+    public function aluno2()
+    {
+        return $this->state (function (array $attributes){
+            return [
+                'name'      => "Gabriel Silva Santos",
+                'email'     => "aluno2@example.com",
+                'password'  => Hash::make("123456789"),
+                'acesso'    => "aluno",
+                'cpf'       => "16578942304",
+                'endereco'  => "124856369",
+                'filme'     => "O massacre da Serra Elétrica",
+            ];
+        });
+    }
+
+    public function aluno3()
+    {
+        return $this->state (function (array $attributes){
+            return [
+                'name'      => "Bruno Silva Santos",
+                'email'     => "aluno3@example.com",
+                'password'  => Hash::make("123456789"),
+                'acesso'    => "aluno",
+                'cpf'       => "78564392105",
+                'endereco'  => "13335350",
+                'filme'     => "Pokemon, a volta de Mewtwo",
+            ];
+        });
+    }
+
+    public function aluno4()
+    {
+        return $this->state (function (array $attributes){
+            return [
+                'name'      => "Guilherme Silva Santos",
+                'email'     => "aluno4@example.com",
+                'password'  => Hash::make("123456789"),
+                'acesso'    => "aluno",
+                'cpf'       => "44513691859",
+                'endereco'  => "13335350",
+                'filme'     => "Avatar",
+            ];
+        });
+    }
+
+    public function aluno5()
+    {
+        return $this->state (function (array $attributes){
+            return [
+                'name'      => "Maria Elisa Silva Santos",
+                'email'     => "aluno5@example.com",
+                'password'  => Hash::make("123456789"),
+                'acesso'    => "aluno",
+                'cpf'       => "49562370124",
+                'endereco'  => "15447896",
+                'filme'     => "A Cabana",
+            ];
+        });
+    }
+
+    public function professor1()
+    {
+        return $this->state (function (array $attributes){
+            return [
+                'name'      => "Leandro Silva Santos",
+                'email'     => "professor1@example.com",
+                'password'  => Hash::make("123456789"),
+                'acesso'    => "professor",
+                'cpf'       => "56278910348",
+                'endereco'  => "142856369",
+                'image'     => "avatar",
+            ];
+        });
+    }
+
+    public function professor2()
+    {
+        return $this->state (function (array $attributes){
+            return [
+                'name'      => "Yara Silva Santos",
+                'email'     => "professor2@example.com",
+                'password'  => Hash::make("123456789"),
+                'acesso'    => "professor",
+                'cpf'       => "56178942304",
+                'endereco'  => "12635369",
+                'image'     => "avatar",
+            ];
+        });
+    }
+
+    public function professor3()
+    {
+        return $this->state (function (array $attributes){
+            return [
+                'name'      => "Ricardo Silva Santos",
+                'email'     => "professor3@example.com",
+                'password'  => Hash::make("123456789"),
+                'acesso'    => "professor",
+                'cpf'       => "78564392105",
+                'endereco'  => "13895350",
+                'image'     => "avatar",
+            ];
+        });
+    }
+    
+
     /**
      * Indicate that the model's email address should be unverified.
      *
