@@ -2,7 +2,13 @@
 
 Seguindo as orientações, desenvolvemos um controle escolar em laravel para a Rede de Ensino Xasteriana REX(Nome ficticio).
 
-## 🔨 Funcionalidades do projeto 🔧
+## 🌐 Base de estudos 📚
+
+- Orientações de aula
+- https://www.youtube.com/playlist?list=PLnDvRpP8BnewYKI1n2chQrrR4EYiJKbUG
+- https://www.youtube.com/playlist?list=PLcoYAcR89n-reidRFA3XCIvQPeKFt4dQU
+
+## ⚒ Funcionalidades do projeto 🛠
 
 - `Sistema de Login & Permissions`
 - `CRUD de alunos/professores/cursos`
