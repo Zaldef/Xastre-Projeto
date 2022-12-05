@@ -25,7 +25,6 @@
             <img src="/img/cursos/{{$cursos->image}}.jpg" alt="{{ $cursos->name }}">
             <div class="card-body">
                 <h5 class="card-title">{{ $cursos->name }}</h5>
-                <p class="card-alunos">X/{{ $cursos->alunosqtd }} Matriculados</p>
                 <a href="/cursos/{{$cursos->id}}" class="btn btn-primary">Saber mais</a>
                 <p></p>
             </div>

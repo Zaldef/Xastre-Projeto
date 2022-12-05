@@ -33,9 +33,11 @@ Route::post('/cursos', [CursoController::class, 'store'])->middleware('auth');
 Route::delete('/cursos/{id}', [CursoController::class,'delete'])->middleware('auth');
 Route::get('/cursos/edit/{id}', [CursoController::class,'edit'])->middleware('auth');
 Route::put('/cursos/update/{id}', [CursoController::class,'update'])->middleware('auth');
-Route::put('/cursos/joinP/{id}', [CursoController::class,'InProfessor'])->middleware('auth');
-Route::post('/cursos/joinA/{id}', [CursoController::class,'InAluno'])->middleware('auth');
-Route::delete('/cursos/leaveA/{id}', [CursoController::class,'OutAluno'])->middleware('auth');
+Route::put('/cursos/InProfessor/{id}', [CursoController::class,'InProfessor'])->middleware('auth');
+Route::put('/cursos/OutProfessor/{id}', [CursoController::class,'OutProfessor'])->middleware('auth');
+Route::post('/cursos/InAluno/{id}', [CursoController::class,'InAluno'])->middleware('auth');
+Route::delete('/cursos/OutAluno/{id}', [CursoController::class,'OutAluno'])->middleware('auth');
+Route::get('/dashboard', [CursoController::class,'dashboard'])->middleware('auth');
 
 
 Auth::routes();

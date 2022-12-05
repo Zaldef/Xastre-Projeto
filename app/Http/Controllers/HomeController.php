@@ -36,7 +36,7 @@ class HomeController extends Controller
     public function delete($id) {
         User::findOrFail($id)->delete();
         $user = auth()->user();
-        $user->Cursos_A_P()->detach($id);
+        $user->cursos_A_P()->detach($id);
         return redirect('/home')->with('msg','Cadastro excluido com sucesso !');
     }
 

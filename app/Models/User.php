@@ -51,7 +51,7 @@ class User extends Authenticatable
         return $this->hasMany('\App\Models\Curso');
     }
 
-    public function Cursos_A_P(){
+    public function cursos_A_P(){
         return $this->belongsToMany('\App\Models\Curso');
     }
 }
