@@ -18,6 +18,7 @@ Use App\Http\Controllers\AlunoController;
 Use App\Http\Controllers\ProfessorController;
 Use App\Http\Controllers\HomeController;
 
+Auth::routes();
 
 Route::get('/', [HomeController::class , 'index']);
 Route::get('/home', [HomeController::class, 'index'])->middleware('auth');
@@ -40,5 +41,5 @@ Route::delete('/cursos/OutAluno/{id}', [CursoController::class,'OutAluno'])->mid
 Route::get('/dashboard', [CursoController::class,'dashboard'])->middleware('auth');
 
 
-Auth::routes();
+
 
