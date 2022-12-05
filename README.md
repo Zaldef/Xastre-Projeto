@@ -13,7 +13,7 @@ Seguindo as orientações, desenvolvemos um controle escolar em laravel para a R
 - `Sistema de Login & Permissions`
 - `CRUD de alunos/professores/cursos`
 
-### Passo a passo
+## Passo a passo ##
 
 Baixe a ultima release, entre na pasta e execute os comandos abaixo:
 
@@ -69,6 +69,5 @@ Acesse o phpmyadmin
 [http://localhost:8081](http://localhost:8081)
 
 ## Autores
-
-| [`<img src="https://avatars.githubusercontent.com/u/78030935?v=4" width=115><br>``<sub>`Zaldef`</sub>`](https://github.com/Zaldef) | [`<img src="https://avatars.githubusercontent.com/u/111884977?v=4" width=115><br>``<sub>`leticiamaiza`</sub>`](https://github.com/leticiamaiza) |
-| :-----------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [<img src="https://avatars.githubusercontent.com/u/78030935?v=4" width=115><br><sub>Zaldef</sub>](https://github.com/Zaldef) |  [<img src="https://avatars.githubusercontent.com/u/111884977?v=4" width=115><br><sub>leticiamaiza</sub>](https://github.com/leticiamaiza) | 
+| :---: | :---: |
