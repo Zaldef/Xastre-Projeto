@@ -2,12 +2,18 @@
 
 Seguindo as orientações, desenvolvemos um controle escolar em laravel para a Rede de Ensino Xasteriana REX(Nome ficticio).
 
-## 🔨 Funcionalidades do projeto 🔧
+## 🌐 Base de estudos 📚
+
+- Orientações de aula
+- https://www.youtube.com/playlist?list=PLnDvRpP8BnewYKI1n2chQrrR4EYiJKbUG
+- https://www.youtube.com/playlist?list=PLcoYAcR89n-reidRFA3XCIvQPeKFt4dQU
+
+## ⚒ Funcionalidades do projeto 🛠
 
 - `Sistema de Login & Permissions`
 - `CRUD de alunos/professores/cursos`
 
-### Passo a passo
+## Passo a passo ##
 
 Baixe a ultima release, entre na pasta e execute os comandos abaixo:
 
@@ -63,6 +69,5 @@ Acesse o phpmyadmin
 [http://localhost:8081](http://localhost:8081)
 
 ## Autores
-
-| [`<img src="https://avatars.githubusercontent.com/u/78030935?v=4" width=115><br>``<sub>`Zaldef`</sub>`](https://github.com/Zaldef) | [`<img src="https://avatars.githubusercontent.com/u/111884977?v=4" width=115><br>``<sub>`leticiamaiza`</sub>`](https://github.com/leticiamaiza) |
-| :-----------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [<img src="https://avatars.githubusercontent.com/u/78030935?v=4" width=115><br><sub>Zaldef</sub>](https://github.com/Zaldef) |  [<img src="https://avatars.githubusercontent.com/u/111884977?v=4" width=115><br><sub>leticiamaiza</sub>](https://github.com/leticiamaiza) | 
+| :---: | :---: |
