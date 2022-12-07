@@ -22,8 +22,7 @@ return new class extends Migration
             $table->integer('alunosqtdmin');
             $table->integer('alunosqtdmax');
             $table->string('image');
-            $table->char('professor', 50)->nullable("Não atribuído")->unique();
-            
+            $table->foreignId('user_id')->nullable();    
         });
     }
 

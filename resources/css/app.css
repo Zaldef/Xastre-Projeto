@@ -1,0 +1,19 @@
+.navbar-brand img {
+    width: 50px;
+    margin-left: -5rem;
+  }
+  
+  .btn-primary {
+    background-color: #92c44c;
+    border: 2px solid #92c44c;
+  }
+  
+  .btn-primary:hover {
+    background-color: #92c44c;
+    border-color: #2d420f;
+  }
+  
+  #app .container{
+    color: #171614;
+  
+  }
