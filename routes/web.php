@@ -14,8 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Use App\Http\Controllers\CursoController;
-Use App\Http\Controllers\AlunoController;
-Use App\Http\Controllers\ProfessorController;
 Use App\Http\Controllers\HomeController;
 
 Auth::routes();
@@ -38,7 +36,7 @@ Route::put('/cursos/InProfessor/{id}', [CursoController::class,'InProfessor'])->
 Route::put('/cursos/OutProfessor/{id}', [CursoController::class,'OutProfessor'])->middleware('auth');
 Route::post('/cursos/InAluno/{id}', [CursoController::class,'InAluno'])->middleware('auth');
 Route::delete('/cursos/OutAluno/{id}', [CursoController::class,'OutAluno'])->middleware('auth');
-Route::get('/dashboard', [CursoController::class,'dashboard'])->middleware('auth');
+Route::get('/home', [CursoController::class,'home'])->middleware('auth');
 
 
 

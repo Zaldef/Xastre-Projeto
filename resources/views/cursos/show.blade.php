@@ -19,8 +19,14 @@
        <p class="curso-alunosqtd"><ion-icon name="person-outline"></ion-icon> Sem atribuição de professor até o momento!</p>
        @else
         <p class="curso-alunosqtd"><ion-icon name="person-outline"></ion-icon> Professor: {{ $cursoProfessor->name }}</p>
+       @endif 
+       @if(count($curso->users) < $curso->alunosqtdmin)
+       <p class="curso-alunosqtd"><ion-icon name="file-tray-full-outline"></ion-icon> Status: Matrículas Abertas - Mínimo de alunos não atingido!</p>
+        @elseif(count($curso->users) >= $curso->alunosqtdmin && count($curso->users) < $curso->alunosqtdmax) 
+        <p class="curso-alunosqtd"><ion-icon name="file-tray-full-outline"></ion-icon> Status: Matrículas Abertas - Curso acontecerá!</p>
+        @else
+        <p class="curso-alunosqtd"><ion-icon name="file-tray-full-outline"></ion-icon> Status: Matrículas Encerradas</p>
        @endif
-       <p class="curso-alunosqtd"><ion-icon name="file-tray-full-outline"></ion-icon> Status: Matrículas Abertas/Mínimo de alunos não atingido!/Matrículas Abertas - Curso acontecerá!/Matrículas Encerradas</p>
         <a href="#" class="btn btn-primary" id="curso-submit">Encerrar Matriculas</a>
       </div>
       <div class="col-md-12" id="description-container">
@@ -28,11 +34,11 @@
         <p class="curso-description">{{$curso->description}}</p>
       </div>
       <div class="buttons-container">
-        <a href="/cursos/edit/{{ $curso->id }}" class="btn btn-primary"><ion-icon name="pencil-outline"></ion-icon> Editar</a>
+        <a href="/cursos/edit/{{ $curso->id }}" class="btn btn-primary"></ion-icon> Editar</a>
         <form action="/cursos/{{ $curso->id }}" method="POST">
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn btn-danger"><ion-icon name="trash-outline"></ion-icon> Deletar</button>
+            <button type="submit" class="btn btn-danger">Deletar</button>
           </form>    
           @if(Auth::user()->acesso == 'Professor' && $curso->user_id == null)
               <form action="/cursos/InProfessor/{{$curso->id}}" method="POST"> 

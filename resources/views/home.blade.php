@@ -1,25 +1,73 @@
 @extends('layouts.app')
 
-@section('title', 'REX')
+@section('title', Auth::user()->name)
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="col-md-10 offset-md-1 dashboard-title-container">
+    <h2>Meus cursos</h2>
 </div>
-@endsection
+@if(Auth::user()->acesso == 'Aluno')
+    <div class="col-md-10 offset-md-1 dashboard-title-container">
+        <h1>Cursos que estou participando</h1>
+    </div>
+@elseif(Auth::user()->acesso == 'Professor')
+    <div class="col-md-10 offset-md-1 dashboard-title-container">
+        <h1>Cursos que estou ministrando</h1>
+    </div>
+@endif
+<div class="col-md-10 offset-md-1 dashboard-cursos-container">
+    @if(Auth::user()->acesso == 'Aluno')
+        @if(count($cursos_A_P) > 0)
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Participantes</th>
+                    </tr>
+                </thead>
+            </table>
+                <tbody>
+                    @foreach($cursos_A_P as $curso)
+                        <tr>
+                            <td scropt="row">{{ $loop->index + 1}}</td>
+                            <td><a href="/cursos/{{ $curso->id }}">{{ $curso->name }}</a></td>
+                            <td>{{ count($curso->users) }}/{{ $curso->alunosqtdmax }}</td>
+                            <td>
+                                <form action="/cursos/OutAluno/{{$curso->id}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger"><ion-icon name="trash-outline"></ion-icon>Sair do curso</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @else
+            <p>Você não possui cursos a fazer, <a href="/cursos">Matricule-se!</a></p>
+        @endif
+        @elseif(Auth::user()->acesso == 'Professor')
+        @if(count($curso_P) > 0)
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Participantes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($curso_P as $curso)
+                        <tr>
+                            <td scropt="row">{{ $loop->index + 1}}</td>
+                            <td><a href="/cursos/{{ $curso->id }}">{{ $curso->name }}</a></td>
+                            <td>{{ count($curso->users) }}/{{ $curso->alunosqtdmax }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @else
+            <p class="aviso">Você ainda não é professor de nenhum curso!</p>
+        @endif
+@endif
+</div>
+@endsection 
