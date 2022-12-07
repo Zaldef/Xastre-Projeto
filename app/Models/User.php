@@ -21,6 +21,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'acesso',
+        'cpf',
+        'endereco',
+        'filme',
+        'image'
     ];
 
     /**
@@ -41,4 +46,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    public function cursos(){
+        return $this->hasMany('\App\Models\Curso');
+    }
+
+    public function cursos_A_P(){
+        return $this->belongsToMany('\App\Models\Curso');
+    }
 }
