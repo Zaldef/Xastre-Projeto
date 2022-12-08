@@ -22,7 +22,8 @@ return new class extends Migration
             $table->integer('alunosqtdmin');
             $table->integer('alunosqtdmax');
             $table->string('image');
-            $table->foreignId('user_id')->nullable();    
+            $table->foreignId('user_id')->nullable(); 
+            $table->string("status")->default('1');   
         });
     }
 

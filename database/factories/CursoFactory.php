@@ -22,7 +22,9 @@ class CursoFactory extends Factory
             'simplified_description' => "Curso sobre um dos itens do pacote Office, o WORD",
             'alunosqtdmin' => "10",
             'alunosqtdmax' => "40",
-            'image' => "curso1"    
+            'image' => "curso1",
+            "user_id" =>"null",
+            "status" => "1"   
         ];
     }
 
@@ -35,7 +37,9 @@ class CursoFactory extends Factory
                 'simplified_description' => "Curso sobre um dos itens do pacote Office, o PowerPoint",
                 'alunosqtdmin' => "10",
                 'alunosqtdmax' => "40",
-                'image' => "curso2"                 
+                'image' => "curso2",
+                "user_id" =>"null",
+                "status" => "1"                  
             ];
         });
     }
@@ -49,7 +53,9 @@ class CursoFactory extends Factory
                 'simplified_description' => "Curso sobre um dos itens do pacote Office, o Excel",
                 'alunosqtdmin' => "1",
                 'alunosqtdmax' => "5",
-                'image' => "curso3" 
+                'image' => "curso3",
+                "user_id" =>"null",
+                "status" => "1"  
             ];
         });
     }

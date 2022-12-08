@@ -1,4 +1,6 @@
 Arrumar css
+Show cursos - Encerrar matricula
+edit cursos - inserrir aluno e professor
 @if(count($cursos) == 0 && $search) */
                 <p>Não foi possível encontrar nenhum curso com {{ $search }}! <a href="/cursos">Ver todos os cursos</a></p>
                 @elseif(count($cursos) == 0)
