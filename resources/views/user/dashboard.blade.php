@@ -11,7 +11,7 @@
     <h2>Meus cursos</h2>
 </div>
 <div class="col-md-10 offset-md-1 dashboard-cursos-container">
-    @if(Auth::user()->acesso == 'Aluno')
+    @if(Auth::user()->acesso == 'Aluno' || Auth::user()->acesso == 'Admin')
         @if(count($cursos_A_P) > 0)
             <table class="table">
                 <thead>
@@ -41,7 +41,8 @@
         @else
             <p>Você não possui cursos a fazer, <a href="/cursos">Matricule-se!</a></p>
         @endif
-        @elseif(Auth::user()->acesso == 'Professor')
+    @endif
+    @if(Auth::user()->acesso == 'Professor' || Auth::user()->acesso == 'Admin')
         @if(count($curso_P) > 0)
             <table class="table">
                 <thead>

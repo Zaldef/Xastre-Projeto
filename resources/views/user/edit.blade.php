@@ -4,6 +4,7 @@
 
 @section('content')
 
+@if(Auth::user()->acesso != 'Secretaria')
 <div id="edit-create-container" class="col-md-6 offset-md-3">
     <h1>Edite as informações</h1>
     <form action="/user/update/{{Auth::user()->id}}" method="POST">
@@ -29,7 +30,7 @@
             <label for="title">Endereço:</label>
             <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Endereço" value="{{ Auth::user()->endereco }}">
         </div>
-        @if(Auth::user()->acesso == 'Aluno')
+        @if(Auth::user()->acesso == 'Aluno' || Auth::user()->acesso == 'Admin')
         <div id="cursos-form" class="form-group">
             <label for="title">Filme:</label>
             <input type="text" class="form-control" id="filme" name="filme" placeholder="Filme" value="{{ Auth::user()->filme }}">
@@ -40,7 +41,7 @@
             <input type="password" class="form-control" id="password" name="password" placeholder="Nova Senha">
        </div>
 
-       @if(Auth::user()->acesso == 'Professor')
+       @if(Auth::user()->acesso == 'Professor' || Auth::user()->acesso == 'Admin')
        <div id="cursos-form" class="form-group">
            <label for="title">Avatares:</label>
        </div>
@@ -159,4 +160,5 @@
        <input type="submit" class="btn btn-primary" value="Salvar">
     </form>
 </div>
+@endif
 @endsection

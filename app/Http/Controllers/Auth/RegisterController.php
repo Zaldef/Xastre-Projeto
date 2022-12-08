@@ -54,8 +54,8 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'acesso' => ['required', 'string'],
-            'cpf' => ['required', 'string', 'min:11', 'max:11'],
-            'endereco' => ['required', 'string', 'max:255'],
+            'cpf' => ['string', 'min:11', 'max:11'],
+            'endereco' => ['string', 'max:255'],
             'filme' => ['string', 'max:255'],
             'image' => ['string']
         ]);

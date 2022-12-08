@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             'name' => "Secretaria",
             'email' => "secretaria@REX.edu.br",
             'password' => Hash::make("gui260604"),
-            'acesso' => "secretaria",
+            'acesso' => "Secretaria",
         ]);
 
         Curso::factory()->create();

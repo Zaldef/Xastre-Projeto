@@ -3,6 +3,7 @@
 @section('title', 'Register')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -38,6 +39,10 @@
                                     </div>
                                     <div class="form-check">
                                         <input type="radio" class="form-check-input" id="acesso" name="acesso" value="Professor"> Professor        
+                                        <label class="form-check-label" for="radio"></label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" id="acesso" name="acesso" value="Professor"> Secretaria        
                                         <label class="form-check-label" for="radio"></label>
                                     </div>
                                     @error('acesso')
@@ -139,4 +144,5 @@
         </div>
     </div>
 </div>
+
 @endsection

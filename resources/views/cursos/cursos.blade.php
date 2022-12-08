@@ -25,9 +25,9 @@
             <img src="/img/cursos/{{$cursos->image}}.jpg" alt="{{ $cursos->name }}">
             <div class="card-body">
                 <h5 class="card-title">{{ $cursos->name }}</h5>
-                @if(count($cursos->users) < $cursos->alunosqtdmin)
+                @if(count($cursos->users) < $cursos->alunosqtdmin && $cursos->status == '1')
                     <h6>Matrículas Abertas - Mínimo de alunos não atingido!</h6>
-                @elseif(count($cursos->users) >= $cursos->alunosqtdmin && count($cursos->users) < $cursos->alunosqtdmax) 
+                @elseif(count($cursos->users) >= $cursos->minAlunos && count($cursos->users) < $cursos->alunosqtdmax && $cursos->status == '1') 
                     <h6>Matrículas Abertas - Curso acontecerá!</h6>
                 @else
                     <h6>Matrículas Encerradas</h6>
@@ -38,5 +38,5 @@
             </div>
         </div>
         @endforeach
-
+        
 @endsection 

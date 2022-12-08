@@ -3,7 +3,7 @@
 @section('title', 'Editando:' . $curso->name)
 
 @section('content')
-
+@if(Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'Admin')
 <div id="cursos-create-container" class="col-md-6 offset-md-3">
     <h1>Editando: {{ $curso->name }}</h1>
     <form action="/cursos/update/{{ $curso->id }}" method="POST">
@@ -65,30 +65,30 @@
                 <img src="/img/cursos/curso3.jpg">
             </div>
         @endif
-        @if(count($curso->users) < $curso->alunosqtdmax)
-            <div id="cursos-form" class="form-group">
-                <label for="nome">Inserir alunos: </label>
-            </div>
-            @foreach($users as $user)
+
+        <div id="cursos-form" class="form-group">
+            <label for="nome">Inserir alunos: </label>
+        </div>
+        @foreach($users as $user)
                 @if($user->acesso == 'Aluno')
                     <div class="form-check-curso">
                         <input class="form-check-input" type="checkbox" id="check" name="option[]" value="{{ $user->id }}"> {{ $user->name }}
                         <label class="form-check-label"></label> 
                     </div>
                 @endif
-            @endforeach
-        @endif
+        @endforeach
+
         <div id="cursos-form" class="form-group">
-            <label for="title">Escolher professor: </label>
+            <label for="title">Escolha professor: </label>
         </div>
-        @if($curso->user_id == null)
+        @if($curso->user_id == 0)
             <div class="form-check-curso">
-                <input class="form-check-input" type="radio" name="user_id" value="null" checked> None
+                <input class="form-check-input" type="radio" name="user_id" value="0" checked> None
                 <label class="form-check-label"></label> 
             </div>
         @else
             <div class="form-check-curso">
-                <input class="form-check-input" type="radio" name="user_id" value="null"> None
+                <input class="form-check-input" type="radio" name="user_id" value="0"> None
                 <label class="form-check-label"></label> 
             </div>
         @endif
@@ -110,4 +110,7 @@
         <input type="submit" class="btn btn-primary" value="Editar curso">
     </form>
 </div>
+@else
+<h1>Você não possui acesso, volte para <a href="/home">HOME!</a></h1>
+@endif
 @endsection
