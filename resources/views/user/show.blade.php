@@ -21,11 +21,11 @@
             @endif
             <h3>Ultimo Acesso: {{ Auth::user()->ultimo_acesso }}</</h3>
             <div class="buttons-container">
-                <a href="/user/edit/{{Auth::user()->id}}" class="btn btn-primary"><ion-icon name="pencil-outline"></ion-icon> Editar</a>
+                <a href="/user/edit/{{Auth::user()->id}}" class="btn btn-primary">Editar</a>
                 <form action="/user/{{ Auth::user()->id }}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger"><ion-icon name="trash-outline"></ion-icon> Deletar</button>
+                    <button type="submit" class="btn btn-danger">Deletar</button>
                 </form>
             </div>
         </div>

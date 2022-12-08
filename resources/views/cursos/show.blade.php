@@ -18,7 +18,7 @@
        @if($curso->user_id == null)
        <p class="curso-alunosqtd"><ion-icon name="person-outline"></ion-icon> Sem atribuição de professor até o momento!</p>
        @else
-        <p class="curso-alunosqtd"><ion-icon name="person-outline"></ion-icon> Professor: {{ $cursoProfessor->name }}</p>
+        <p class="curso-alunosqtd"><ion-icon name="person-outline"></ion-icon> Professor: {{ $curso_P->name }}</p>
        @endif 
        @if(count($curso->users) < $curso->alunosqtdmin)
        <p class="curso-alunosqtd"><ion-icon name="file-tray-full-outline"></ion-icon> Status: Matrículas Abertas - Mínimo de alunos não atingido!</p>

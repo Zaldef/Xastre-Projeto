@@ -49,14 +49,14 @@ class CursoController extends Controller
             }
         }
         if(User::where('id', $curso->user_id)->exists()) {
-            $cursoProfessor = User::where('id', $curso->user_id)->first();
+            $curso_P = User::where('id', $curso->user_id)->first();
 
-            return view('cursos.show', ['curso' => $curso, 'cursoProfessor' => $cursoProfessor, 'curso_A_P' => $curso_A_P, 'count' => $count]);
+            return view('cursos.show', ['curso' => $curso, 'curso_P' => $curso_P, 'curso_A_P' => $curso_A_P, 'count' => $count]);
         }else{
             $curso->user_id = null;
-            $cursoProfessor = User::where('id', $curso->user_id)->first();
+            $curso_P = User::where('id', $curso->user_id)->first();
 
-            return view('cursos.show', ['curso' => $curso, 'cursoProfessor' => $cursoProfessor, 'curso_A_P' => $curso_A_P, 'count' => $count]);
+            return view('cursos.show', ['curso' => $curso, 'curso_P' => $curso_P, 'curso_A_P' => $curso_A_P, 'count' => $count]);
         }  
     }
 
@@ -71,19 +71,23 @@ class CursoController extends Controller
     public function edit($id){
         $users = User::all();
         $curso = Curso::findOrFail($id);
+        $curso_A_P = $curso->users;
 
-        return view('cursos.edit', ['curso' => $curso, 'users' => $users]);;
+        return view('cursos.edit', ['curso' => $curso, 'users' => $users, 'curso_A_P' => $curso_A_P]);;
     }
 
     public function update(Request $request){
         $curso = Curso::findOrFail($request->id);
-        $curso->update($request->only(['name', 'description', 'simplified_description', 'alunosqtdmin', 'alunosqtdmax', 'image']));
+        $curso->update($request->only(['name', 'description', 'simplified_description', 'alunosqtdmin', 'alunosqtdmax', 'image', 'user_id']));
+        foreach($curso->users as $aluno){
+            $aluno->pivot->nota = $request->nota;
+        }
         if(is_null($request->option)){
         }else{
             $curso->users()->detach($request->option);
             $curso->users()->attach($request->option);
         }
-
+        
         return redirect('/cursos')->with('msg', 'Curso editado com sucesso!');
     }
 
@@ -112,6 +116,12 @@ class CursoController extends Controller
         $user->cursos_A_P()->detach($id);
 
         return redirect('/cursos')->with('msg', 'Sua matricula foi removida!');
+    }
+
+    public function EndMCurso($id){
+        Curso::findOrFail($id)->update(['status' => '0']);
+
+        return redirect('/cursos')->with('msg', 'Matriculas encerradas!');
     }
 
     public function home(){

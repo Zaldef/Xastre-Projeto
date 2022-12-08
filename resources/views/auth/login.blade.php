@@ -59,7 +59,6 @@
                                     {{ __('Login') }}
                                 </button>
                                     </a>
-                                @endif
                             </div>
                         </div>
                     </form>
