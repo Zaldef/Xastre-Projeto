@@ -79,14 +79,7 @@ class CursoController extends Controller
     public function update(Request $request){
         $curso = Curso::findOrFail($request->id);
         $curso->update($request->only(['name', 'description', 'simplified_description', 'alunosqtdmin', 'alunosqtdmax', 'image', 'user_id']));
-        foreach($curso->users as $aluno){
-            $aluno->pivot->nota = $request->nota;
-        }
-        if(is_null($request->option)){
-        }else{
-            $curso->users()->detach($request->option);
-            $curso->users()->attach($request->option);
-        }
+        
         
         return redirect('/cursos')->with('msg', 'Curso editado com sucesso!');
     }
@@ -95,27 +88,27 @@ class CursoController extends Controller
         $user = auth()->user();
         Curso::findOrFail($request->id)->update(['user_id' => $user->id]);   
 
-        return redirect('/cursos')->with('msg', 'Curso assumido com sucesso!');
+        return redirect('/home')->with('msg', 'Curso assumido com sucesso!');
     }
 
     public function OutProfessor($id){
         Curso::findOrFail($id)->update(['user_id' => null]);
 
-        return redirect('/cursos')->with('msg', 'Você deixou de assumir o curso!');
+        return redirect('/home')->with('msg', 'Você deixou de assumir o curso!');
     }
 
     public function InAluno($id){
         $user = auth()->user();
         $user->cursos_A_P()->attach($id);
 
-        return redirect('/cursos')->with('msg', 'Sua matricula está confirmada!');
+        return redirect('/home')->with('msg', 'Sua matricula está confirmada!');
     }
 
     public function OutAluno($id){
         $user = auth()->user();
         $user->cursos_A_P()->detach($id);
 
-        return redirect('/cursos')->with('msg', 'Sua matricula foi removida!');
+        return redirect('/home')->with('msg', 'Sua matricula foi removida!');
     }
 
     public function EndMCurso($id){
@@ -131,5 +124,37 @@ class CursoController extends Controller
         $curso_P = $cursos->where('user_id', $user->id);
 
         return view('home', ['cursos_A_P' => $cursos_A_P,'curso_P' => $curso_P]);
+    }
+
+    public function close($id){
+        Curso::findOrFail($id)->update(['status' => '0']);
+
+        return redirect('/cursos')->with('msg', 'Matriculas encerradas!');
+    }
+
+    public function notas(){
+        Curso::findOrFail($request->id)->update($request->all());
+        $curso = Curso::findOrFail($request->id);
+        foreach($curso->users as $aluno){
+            $aluno->pivot->nota = $request->nota;
+        }
+        if(is_null($request->option)){
+
+        }else{
+            $curso->users()->detach($request->option);
+            $curso->users()->attach($request->option);
+        }
+
+        return redirect('/cursos/alunos')->with('msg', 'Notas atualizadas com sucesso!');
+    }  
+
+    public function alunos($id){
+        $curso_A_P = $curso->users;
+        foreach($curso_A_P as $user){
+            if($user->id == $user->id){
+                $count = 1;
+            }
+        }
+        return view('cursos.alunos', ['curso_A_P' => $curso_A_P]);  
     }
 }

@@ -19,11 +19,23 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => "Secretaria",
-            'email' => "secretaria@REX.edu",
-            'password' => Hash::make("gui260604"),
-            'acesso' => "secretaria",
+            'name' => "ADM",
+            'email' => "ADM@REX.edu.br",
+            'password' => Hash::make("123456789"),
+            'acesso' => "ADM",
         ];
+    }
+
+    public function secretaria1()
+    {
+        return $this->state (function (array $attributes){
+            return [
+                'name' => "Secretaria",
+                'email' => "secretaria@REX.edu.br",
+                'password' => Hash::make("123456789"),
+                'acesso' => "Secretaria",
+            ];
+        });
     }
 
     public function aluno1()
@@ -33,7 +45,7 @@ class UserFactory extends Factory
                 'name'      => "Maiza Silva Santos",
                 'email'     => "aluno1@example.com",
                 'password'  => Hash::make("123456789"),
-                'acesso'    => "aluno",
+                'acesso'    => "Aluno",
                 'cpf'       => "25678910348",
                 'endereco'  => "124856369",
                 'filme'     => "Matrix",
@@ -48,7 +60,7 @@ class UserFactory extends Factory
                 'name'      => "Gabriel Silva Santos",
                 'email'     => "aluno2@example.com",
                 'password'  => Hash::make("123456789"),
-                'acesso'    => "aluno",
+                'acesso'    => "Aluno",
                 'cpf'       => "16578942304",
                 'endereco'  => "124856369",
                 'filme'     => "O massacre da Serra Elétrica",
@@ -63,7 +75,7 @@ class UserFactory extends Factory
                 'name'      => "Bruno Silva Santos",
                 'email'     => "aluno3@example.com",
                 'password'  => Hash::make("123456789"),
-                'acesso'    => "aluno",
+                'acesso'    => "Aluno",
                 'cpf'       => "78564392105",
                 'endereco'  => "13335350",
                 'filme'     => "Pokemon, a volta de Mewtwo",
@@ -78,7 +90,7 @@ class UserFactory extends Factory
                 'name'      => "Guilherme Silva Santos",
                 'email'     => "aluno4@example.com",
                 'password'  => Hash::make("123456789"),
-                'acesso'    => "aluno",
+                'acesso'    => "Aluno",
                 'cpf'       => "44513691859",
                 'endereco'  => "13335350",
                 'filme'     => "Avatar",
@@ -93,7 +105,7 @@ class UserFactory extends Factory
                 'name'      => "Maria Elisa Silva Santos",
                 'email'     => "aluno5@example.com",
                 'password'  => Hash::make("123456789"),
-                'acesso'    => "aluno",
+                'acesso'    => "Aluno",
                 'cpf'       => "49562370124",
                 'endereco'  => "15447896",
                 'filme'     => "A Cabana",
@@ -108,7 +120,7 @@ class UserFactory extends Factory
                 'name'      => "Leandro Silva Santos",
                 'email'     => "professor1@example.com",
                 'password'  => Hash::make("123456789"),
-                'acesso'    => "professor",
+                'acesso'    => "Professor",
                 'cpf'       => "56278910348",
                 'endereco'  => "142856369",
                 'image'     => "avatar",
@@ -123,7 +135,7 @@ class UserFactory extends Factory
                 'name'      => "Yara Silva Santos",
                 'email'     => "professor2@example.com",
                 'password'  => Hash::make("123456789"),
-                'acesso'    => "professor",
+                'acesso'    => "Professor",
                 'cpf'       => "56178942304",
                 'endereco'  => "12635369",
                 'image'     => "avatar",
@@ -138,7 +150,7 @@ class UserFactory extends Factory
                 'name'      => "Ricardo Silva Santos",
                 'email'     => "professor3@example.com",
                 'password'  => Hash::make("123456789"),
-                'acesso'    => "professor",
+                'acesso'    => "Professor",
                 'cpf'       => "78564392105",
                 'endereco'  => "13895350",
                 'image'     => "avatar",

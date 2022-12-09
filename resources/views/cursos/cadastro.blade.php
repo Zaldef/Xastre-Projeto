@@ -2,7 +2,7 @@
 @section('title','Novo Curso')
 @section('content')
 
-
+@if(Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'ADM')
 <div id="curso-create-container" class="col-md-6 offset-md-3">
     <h1>Novo curso</h1>
     <form action="/cursos" method="POST"  enctype="multipart/form-data">
@@ -45,4 +45,7 @@
       <input type="submit" class="btn btn-primary" value="Criar Curso">
     </form>
   </div>
+@else
+<h1>Você não possui acesso, volte para <a href="/home">HOME!</a></h1>
+@endif
 @endsection
