@@ -34,7 +34,7 @@
         <p class="curso-description">{{$curso->description}}</p>
       </div>
       <div class="buttons-container">
-        @if(Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'Admin')
+        @if(Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'ADM')
           <a href="/cursos/edit/{{ $curso->id }}" class="btn btn-primary"></ion-icon> Editar</a>
           <form action="/cursos/{{ $curso->id }}" method="POST">
               @csrf
@@ -42,21 +42,21 @@
               <button type="submit" class="btn btn-danger">Deletar</button>
             </form> 
         @endif   
-          @if(Auth::user()->acesso == 'Professor' && $curso->user_id == null)
+          @if(Auth::user()->acesso == 'Professor' || Auth::user()->acesso == 'ADM' && $curso->user_id == null) 
               <form action="/cursos/InProfessor/{{$curso->id}}" method="POST"> 
                   @csrf
                   @method('PUT')
                   <input type="submit" class="btn btn-primary" value="Assumir curso">
               </form>
           @endif
-          @if(Auth::user()->acesso == 'Professor' && $curso->user_id == Auth::user()->id)
+          @if(Auth::user()->acesso == 'Professor' || Auth::user()->acesso == 'ADM' && $curso->user_id == Auth::user()->id)
               <form action="/cursos/OutProfessor/{{$curso->id}}" method="POST"> 
                  @csrf
                  @method('PUT')
                  <input type="submit" class="btn btn-primary" value="Desistir do curso">
              </form>
           @endif
-          @if((Auth::user()->acesso == 'Aluno' || Auth::user()->acesso == 'Admin') && $count == 0 && count($curso_A_P) < $curso->alunosqtdmax && $curso->status == '1')
+          @if((Auth::user()->acesso == 'Aluno' || Auth::user()->acesso == 'ADM') && $count == 0 && count($curso_A_P) < $curso->alunosqtdmax && $curso->status == '1')
               <form action="/cursos/InAluno/{{$curso->id}}" method="POST">
                   @csrf
                   <input type="submit" class="btn btn-primary" value="Matricular-se">

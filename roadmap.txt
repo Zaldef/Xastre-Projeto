@@ -1,9 +1,13 @@
 Arrumar css
 Show cursos - Encerrar matricula
-Novo Cadastro
 Notas
-Gerar ADM
-|| Auth::user()->acesso == 'Admin'
+Novo curso gerenciar acesso
+|| Auth::user()->acesso == 'ADM'
+
+@if(Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'ADM')
+
+
+
 @if(count($cursos) == 0 && $search) */
                 <p>Não foi possível encontrar nenhum curso com {{ $search }}! <a href="/cursos">Ver todos os cursos</a></p>
                 @elseif(count($cursos) == 0)

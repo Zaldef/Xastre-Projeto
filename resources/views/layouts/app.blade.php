@@ -43,7 +43,7 @@
                                     </li>
                                 @endif
                             @else
-                            @if(Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'Admin')
+                            @if(Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'ADM')
                                 @if (Route::has('register'))
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
@@ -95,9 +95,8 @@
                     @if (session('msg')) 
                         <p class="msg">{{session('msg')}}</p>
                     @endif
-                    
-            @yield('content')
         </main>
+        @yield('content')
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     </div>

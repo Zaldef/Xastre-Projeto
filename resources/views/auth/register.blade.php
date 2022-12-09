@@ -3,7 +3,7 @@
 @section('title', 'Register')
 
 @section('content')
-
+@if(Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'ADM')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -144,5 +144,7 @@
         </div>
     </div>
 </div>
-
+@else
+<h1>Você não possui acesso, volte para <a href="/home">HOME!</a></h1>
+@endif
 @endsection

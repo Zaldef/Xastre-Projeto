@@ -11,7 +11,7 @@
     <h2>Meus cursos</h2>
 </div>
 <div class="col-md-10 offset-md-1 dashboard-cursos-container">
-    @if(Auth::user()->acesso == 'Aluno' || Auth::user()->acesso == 'Admin')
+    @if(Auth::user()->acesso == 'Aluno' || Auth::user()->acesso == 'ADM')
         @if(count($cursos_A_P) > 0)
             <table class="table">
                 <thead>
@@ -31,7 +31,7 @@
                                 <form action="/cursos/OutAluno/{{$curso->id}}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger"><ion-icon name="trash-outline"></ion-icon>Sair do curso</button>
+                                    <button type="submit" class="btn btn-danger">Desmatricular-se</button>
                                 </form>
                             </td>
                         </tr>
@@ -42,7 +42,7 @@
             <p>Você não possui cursos a fazer, <a href="/cursos">Matricule-se!</a></p>
         @endif
     @endif
-    @if(Auth::user()->acesso == 'Professor' || Auth::user()->acesso == 'Admin')
+    @if(Auth::user()->acesso == 'Professor' || Auth::user()->acesso == 'ADM')
         @if(count($curso_P) > 0)
             <table class="table">
                 <thead>

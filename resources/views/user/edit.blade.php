@@ -30,7 +30,7 @@
             <label for="title">Endereço:</label>
             <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Endereço" value="{{ Auth::user()->endereco }}">
         </div>
-        @if(Auth::user()->acesso == 'Aluno' || Auth::user()->acesso == 'Admin')
+        @if(Auth::user()->acesso == 'Aluno' || Auth::user()->acesso == 'ADM')
         <div id="cursos-form" class="form-group">
             <label for="title">Filme:</label>
             <input type="text" class="form-control" id="filme" name="filme" placeholder="Filme" value="{{ Auth::user()->filme }}">
@@ -41,19 +41,19 @@
             <input type="password" class="form-control" id="password" name="password" placeholder="Nova Senha">
        </div>
 
-       @if(Auth::user()->acesso == 'Professor' || Auth::user()->acesso == 'Admin')
+       @if(Auth::user()->acesso == 'Professor' || Auth::user()->acesso == 'ADM')
        <div id="cursos-form" class="form-group">
            <label for="title">Avatares:</label>
        </div>
        @if(Auth::user()->image == 'avatar0')
            <div class="form-check">
-               <input class="form-check-input" type="radio" name="image" value="avatar0" checked>
-               <img src="/img/avatares/avatar0.png">
+               <input class="form-check-input" type="radio" name="image" value="avatar" checked>
+               <img src="/img/avatares/avatar.png">
            </div>
        @else 
            <div class="form-check">
-               <input class="form-check-input" type="radio" name="image" value="avatar0">
-               <img src="/img/avatares/avatar0.png">
+               <input class="form-check-input" type="radio" name="image" value="avatar">
+               <img src="/img/avatares/avatar.png">
            </div>
        @endif
        @if(Auth::user()->image == 'avatar1')

@@ -34,9 +34,9 @@
                 @endif
                 <p class="card-participants"> {{ count($cursos->users) }} Participantes</p>
                 <a href="/cursos/{{$cursos->id}}" class="btn btn-primary">Saber mais</a>
-                <p></p>
             </div>
         </div>
-        @endforeach
-        
+    </div>
+    @endforeach
+
 @endsection 

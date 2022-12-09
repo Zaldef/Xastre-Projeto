@@ -2,6 +2,17 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+body{
+  min-height: 100vh;
+  padding-bottom: 100px;
+  position: relative;
+}
+
+.row{
+  margin: 0px;
+  margin-top: 15px;
+}
+
 container-fluid {
   padding: 0;
 }
@@ -21,19 +32,13 @@ header{
   padding: 10px;
 }
 
+.nav-link{
+  color: #5a3a28;
+}
+
 .navbar-brand img {
   width: 50px;
   margin-left: -5rem;
-}
-
-#navbar {
-  justify-content: space-between;
-  background-color: #008000;
-  padding: 5px 0;
-}
-
-.nav-link{
-  color: #5a3a28;
 }
 
 .btn-danger{
@@ -51,16 +56,40 @@ header{
   border-color: #2d420f;
 }
 
-#app .container{
-  color: #171614;
-
-}
-/* info-container */
-
+#info-container {
+  margin-top: 30px;
+  }
 
 #info-container form{
   display: inline-block;
   margin-top: 15px;
+}
+
+#info-container h1 {
+  font-size: 36px;
+  font-weight: 900;
+}
+
+#info-container p {
+  margin: 0;
+  font-size: 14px;
+  display: flex;
+}
+
+#info-container h3,
+#description-container h3 {
+font-size: 20px;
+font-weight: bold;
+}
+
+#info-container ion-icon {
+font-size: 20px;
+color: #92c44c;
+margin-right: 5px;
+}
+
+#info-container #curso-submit {
+margin: 20px 0;
 }
 
 .form-group{
@@ -71,6 +100,14 @@ header{
   font-size: 20px;
 }
 
+#cursos-form{
+  margin-top: 15px;
+}
+
+.nav-item{
+  margin-right: 25px;
+}
+
 h1 {
   color: green;
 }
@@ -79,21 +116,6 @@ h2 {
   color: green;
 }
 
-footer {
-  text-align: center;
-  background-color: #008000;
-  color: #FFF;
-  padding: 10px;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-
-footer p {
-  margin-bottom: 0;
-}
-
-/* Search Container */
 #search-container {
   background-image: url("../img/Plano.jpg");
   background-size: cover;
@@ -114,86 +136,16 @@ footer p {
   margin: 0 auto;
 }
 
-/* Cursos list */
-#cursos-container {
+#cursos-container{
   padding: 50px;
 }
 
-#cursos-container h2 {
+#cursos-container h2{
+  color: #fff;
   margin-bottom: 10px;
 }
 
-#cursos-container .subtitle {
-  color: #757575;
-  margin-bottom: 30px;
-}
-
-
-.dashboard-title-container {
-  margin-bottom: 30px;
-  margin-top: 30px
-}
-
-.dashboard-cursos-container th {
-  width: 25%;
-  color: #fff;
-}
-
-.dashboard-cursos-container td {
-  width: 25%;
-  color: #fff;
-}
-
-#cards-container {
-  display: flex;
-}
-
-#cursos-container .card {
-  flex: 1 1 24%;
-  max-width: 25%;
-  border-radius: 10px;
-  padding: 0;
-  margin: .5%px;
-}
-
-#cursos-container img {
-  max-height: 150px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-
-body {
-  min-height: 100vh;
-  padding-bottom: 100px;
-  position: relative;
-}
-
-
-
-.row {
-  margin: 0;
-}
-
-
-
-
-
-/* Cursos list */
-#cursos-container {
-  padding: 50px;
-}
-
-#cursos-container h2 {
-  margin-bottom: 10px;
-}
-
-#cursos-container .subtitle {
-  color: #757575;
-  margin-bottom: 30px;
-}
-
-#cards-container {
+#cards-container{
   display: flex;
 }
 
@@ -218,11 +170,98 @@ body {
   margin-bottom: 30px;
 }
 
+.card-participants {
+  font-size: 14px;
+  color: #757575
+}
+
+.form-check img{
+  max-width: 300px;
+  max-height: 300px;
+  width: auto;
+  height: auto;
+  padding: 10px;
+}
+
+#imagecurso-container img {
+  max-width: 400px;
+  max-height: 400px;
+  width: auto;
+  height: auto;
+  padding: 10px;
+}
+
+.dashboard-title-container {
+  margin-bottom: 30px;
+  margin-top: 30px
+}
+
+.dashboard-cursos-container th {
+  width: 25%;
+  color: #fff;
+}
+
+.dashboard-cursos-container td {
+  width: 25%;
+  color: #fff;
+}
+
+.aviso {
+  color: #fff;
+}
+
+#image-container img{
+  width: 375px;
+}
+
+.form-check-curso{
+  color: #5a3a28;
+}
+
+#navbar {
+  justify-content: space-between;
+  background-color: #620080;
+  padding: 5px 0;
+}
+
+#app .container{
+  color: #171614;
+
+}
+
+footer {
+  text-align: center;
+  background-color: #008000;
+  color: #FFF;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p {
+  margin-bottom: 0;
+}
+
+/* Cursos list */
+#cursos-container {
+  padding: 50px;
+}
+
+#cursos-container h2 {
+  margin-bottom: 10px;
+}
+
+#cursos-container .subtitle {
+  color: #757575;
+  margin-bottom: 30px;
+}
+
 .card-alunos {
   font-size: 14px;
   color: #757575;
 }
-/* Cadastro Curso */
+
 #curso-create-container {
   padding: 30px
 }
@@ -235,40 +274,4 @@ body {
 #curso-create-container select,
 #curso-create-container textarea {
   font-size: 12px;
-}
-
-#image-container,
-#info-container {
-margin-top: 30px;
-}
-
-#image-container img {
-border-radius: 10px;
-}
-
-#info-container h1 {
-font-size: 36px;
-font-weight: 900;
-}
-
-#info-container p {
-margin: 0;
-font-size: 14px;
-display: flex;
-}
-
-#info-container h3,
-#description-container h3 {
-font-size: 20px;
-font-weight: bold;
-}
-
-#info-container ion-icon {
-font-size: 20px;
-color: #92c44c;
-margin-right: 5px;
-}
-
-#info-container #curso-submit {
-margin: 20px 0;
 }

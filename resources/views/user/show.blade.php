@@ -7,7 +7,7 @@
 @if(Auth::user()->acesso != 'Secretaria')
 <div class="col-md10 offset-md-1">
     <div class="row">
-        @if(Auth::user()->acesso == 'Professor')
+        @if(Auth::user()->acesso == 'Professor' || Auth::user()->acesso == 'ADM')
         <div id="image-container" class="col-md-4">
             <img src="/img/avatares/{{ Auth::user()->image }}.png" alt="">
         </div>
@@ -23,7 +23,7 @@
             <h3>Ultimo Acesso: {{ Auth::user()->ultimo_acesso }}</</h3>
             <div class="buttons-container">
                 <a href="/user/edit/{{Auth::user()->id}}" class="btn btn-primary">Editar</a>
-            @if(Auth::user()->acesso == 'Admin')
+            @if(Auth::user()->acesso == 'ADM')
                 <form action="/user/{{ Auth::user()->id }}" method="POST">
                     @csrf
                     @method('DELETE')

@@ -17,17 +17,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory()->create([
-            'name' => "Secretaria",
-            'email' => "secretaria@REX.edu.br",
-            'password' => Hash::make("gui260604"),
-            'acesso' => "Secretaria",
-        ]);
+        
 
         Curso::factory()->create();
         Curso::factory()->curso2()->create();
         Curso::factory()->curso3()->create();
 
+        User::factory()->create();
+        User::factory()->secretaria1()->create();
         User::factory()->aluno1()->create();
         User::factory()->aluno2()->create();
         User::factory()->aluno3()->create();

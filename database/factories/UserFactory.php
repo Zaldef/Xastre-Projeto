@@ -19,11 +19,23 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => "Secretaria",
-            'email' => "secretaria@REX.edu",
-            'password' => Hash::make("gui260604"),
-            'acesso' => "Secretaria",
+            'name' => "ADM",
+            'email' => "ADM@REX.edu.br",
+            'password' => Hash::make("123456789"),
+            'acesso' => "ADM",
         ];
+    }
+
+    public function secretaria1()
+    {
+        return $this->state (function (array $attributes){
+            return [
+                'name' => "Secretaria",
+                'email' => "secretaria@REX.edu.br",
+                'password' => Hash::make("123456789"),
+                'acesso' => "Secretaria",
+            ];
+        });
     }
 
     public function aluno1()
