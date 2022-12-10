@@ -79,7 +79,14 @@ class CursoController extends Controller
     public function update(Request $request){
         $curso = Curso::findOrFail($request->id);
         $curso->update($request->only(['name', 'description', 'simplified_description', 'alunosqtdmin', 'alunosqtdmax', 'image', 'user_id']));
-        
+        foreach($curso->users as $aluno){
+            $aluno->pivot->nota = $request->nota;
+        }
+        if(is_null($request->option)){
+        }else{
+            $curso->users()->detach($request->option);
+            $curso->users()->attach($request->option);
+        }
         
         return redirect('/cursos')->with('msg', 'Curso editado com sucesso!');
     }
@@ -123,38 +130,7 @@ class CursoController extends Controller
         $cursos = Curso::all();
         $curso_P = $cursos->where('user_id', $user->id);
 
-        return view('home', ['cursos_A_P' => $cursos_A_P,'curso_P' => $curso_P]);
+        return view('user.home', ['cursos_A_P' => $cursos_A_P,'curso_P' => $curso_P]);
     }
 
-    public function close($id){
-        Curso::findOrFail($id)->update(['status' => '0']);
-
-        return redirect('/cursos')->with('msg', 'Matriculas encerradas!');
-    }
-
-    public function notas(){
-        Curso::findOrFail($request->id)->update($request->all());
-        $curso = Curso::findOrFail($request->id);
-        foreach($curso->users as $aluno){
-            $aluno->pivot->nota = $request->nota;
-        }
-        if(is_null($request->option)){
-
-        }else{
-            $curso->users()->detach($request->option);
-            $curso->users()->attach($request->option);
-        }
-
-        return redirect('/cursos/alunos')->with('msg', 'Notas atualizadas com sucesso!');
-    }  
-
-    public function alunos($id){
-        $curso_A_P = $curso->users;
-        foreach($curso_A_P as $user){
-            if($user->id == $user->id){
-                $count = 1;
-            }
-        }
-        return view('cursos.alunos', ['curso_A_P' => $curso_A_P]);  
-    }
 }

@@ -116,6 +116,12 @@ h2 {
   color: green;
 }
 
+h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: green;
+}
+
 #search-container {
   background-image: url("../img/Plano.jpg");
   background-size: cover;
@@ -191,19 +197,19 @@ h2 {
   padding: 10px;
 }
 
-.dashboard-title-container {
+.home-title-container {
   margin-bottom: 30px;
   margin-top: 30px
 }
 
-.dashboard-cursos-container th {
-  width: 25%;
-  color: #fff;
+.home-cursos-container th {
+  width: 20%;
+  color: #008000;
 }
 
-.dashboard-cursos-container td {
-  width: 25%;
-  color: #fff;
+.home-cursos-container td {
+  width: 20%;
+  color: #5a3a28;
 }
 
 .aviso {

@@ -25,6 +25,7 @@
             <img src="/img/cursos/{{$cursos->image}}.jpg" alt="{{ $cursos->name }}">
             <div class="card-body">
                 <h5 class="card-title">{{ $cursos->name }}</h5>
+                <h6>{{ $cursos->simplified_description}}</h6>
                 @if(count($cursos->users) < $cursos->alunosqtdmin && $cursos->status == '1')
                     <h6>Matrículas Abertas - Mínimo de alunos não atingido!</h6>
                 @elseif(count($cursos->users) >= $cursos->minAlunos && count($cursos->users) < $cursos->alunosqtdmax && $cursos->status == '1') 
@@ -36,7 +37,7 @@
                 <a href="/cursos/{{$cursos->id}}" class="btn btn-primary">Saber mais</a>
             </div>
         </div>
+        @endforeach
     </div>
-    @endforeach
 
 @endsection 

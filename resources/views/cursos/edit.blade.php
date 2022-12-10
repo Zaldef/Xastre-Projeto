@@ -67,7 +67,7 @@
         @endif
 
         <div id="cursos-form" class="form-group">
-            <label for="nome">Inserir alunos: </label>
+            <label for="nome">Matricular alunos: </label>
         </div>
         @foreach($users as $user)
                 @if($user->acesso == 'Aluno')
@@ -107,6 +107,15 @@
                 @endif
             @endif
         @endforeach
+        <div id="cursos-form" class="form-group">
+            <label for="title">Editar notas: </label>
+                @foreach($curso_A_P as $aluno)
+                    <div class="row">
+                            <label for="title">{{$aluno->name}}: </label>
+                            <input type="text" class="form-control" id="title" name="nota[]" value="{{ $aluno->pivot->nota }}">
+                    </div>
+                @endforeach
+        </div>
         <input type="submit" class="btn btn-primary" value="Editar curso">
     </form>
 </div>
