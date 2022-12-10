@@ -22,65 +22,78 @@
           <p class="curso-alunosqtd"><ion-icon name="person-outline"></ion-icon> Professor: {{ $curso_P->name }}</p>
         @endif 
 
-        @if(count($curso->users) < $curso->alunosqtdmin)
+        @if($curso->status == '1' && count($curso->users) < $curso->alunosqtdmin)
           <p class="curso-alunosqtd"><ion-icon name="file-tray-full-outline"></ion-icon> Status: Matrículas Abertas - Mínimo de alunos não atingido!</p>
-        @elseif(count($curso->users) >= $curso->alunosqtdmin && count($curso->users) < $curso->alunosqtdmax) 
+        @elseif($curso->status == '1' && count($curso->users) >= $curso->alunosqtdmin && count($curso->users) < $curso->alunosqtdmax) 
           <p class="curso-alunosqtd"><ion-icon name="file-tray-full-outline"></ion-icon> Status: Matrículas Abertas - Curso acontecerá!</p>
         @else
           <p class="curso-alunosqtd"><ion-icon name="file-tray-full-outline"></ion-icon> Status: Matrículas Encerradas</p>
         @endif
-
-        @if($curso->status == '1')
-          <form action="/cursos/EndMCruso/{{$curso->id}}" method="POST"> 
+        <div class="buttons-container">
+        @if($curso->status == '1' && count($curso->users) < $curso->alunosqtdmax && (Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'ADM'))
+          <form action="/cursos/CloseC/{{$curso->id}}" method="POST"> 
+              @csrf
+              @method('PUT')
+              <input type="submit" class="btn btn-danger" value="Encerrar matriculas">
+          </form>
+        @endif
+        @if($curso->status == '0' && (Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'ADM'))
+          <form action="/cursos/OpenC/{{$curso->id}}" method="POST"> 
+              @csrf
+              @method('PUT')
+              <input type="submit" class="btn btn-primary" value="Abrir matriculas">
+          </form>
+        @endif
+        @if((Auth::user()->acesso == 'Aluno' || Auth::user()->acesso == 'ADM') && $count == 0 && count($curso_A_P) < $curso->alunosqtdmax && $curso->status == '1')
+          <form action="/cursos/InAluno/{{$curso->id}}" method="POST">
+            @csrf
+            <input type="submit" class="btn btn-primary" value="Matricular-se">
+          </form>
+        @endif
+        @if(Auth::user()->acesso == 'Aluno' || Auth::user()->acesso == 'ADM' && $count == 1 )
+          <form action="/cursos/OutAluno/{{$curso->id}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <input type="submit" class="btn btn-danger" value="Desmatricular-se do curso">
+          </form>
+        @endif
+        @if(Auth::user()->acesso == 'Professor' || Auth::user()->acesso == 'ADM' && $curso->user_id == null) 
+          <form action="/cursos/InProfessor/{{$curso->id}}" method="POST"> 
             @csrf
             @method('PUT')
-          <a href="#" class="btn btn-primary" id="curso-submit">Encerrar Matriculas</a>
+            <input type="submit" class="btn btn-primary" value="Assumir curso">
+          </form>
         @endif
-       
-       <div class="buttons-container">
-          @if(Auth::user()->acesso == 'Aluno' || Auth::user()->acesso == 'ADM' && $count == 0 && count($curso_A_P) < $curso->alunosqtdmax && $curso->status == '1')
-            <form action="/cursos/InAluno/{{$curso->id}}" method="POST">
-              @csrf
-              <input type="submit" class="btn btn-primary" value="Matricular-se">
-            </form>
-          @endif
-
-          @if(Auth::user()->acesso == 'Professor' || Auth::user()->acesso == 'ADM' && $curso->user_id == null) 
-            <form action="/cursos/InProfessor/{{$curso->id}}" method="POST"> 
-              @csrf
-              @method('PUT')
-              <input type="submit" class="btn btn-primary" value="Assumir curso">
-            </form>
-          @endif
-
-          @if(Auth::user()->acesso == 'Professor' || Auth::user()->acesso == 'ADM' && $curso->user_id == Auth::user()->id)
-            <form action="/cursos/OutProfessor/{{$curso->id}}" method="POST"> 
-              @csrf
-              @method('PUT')
-              <input type="submit" class="btn btn-primary" value="Desistir do curso">
-            </form>
-          @endif
-
-          @if(Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'ADM')
-            <a href="/cursos/edit/{{ $curso->id }}" class="btn btn-primary"></ion-icon> Editar</a>
-            <form action="/cursos/{{ $curso->id }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger">Deletar</button>
-            </form> 
-          @endif   
+        @if(Auth::user()->acesso == 'Professor' || Auth::user()->acesso == 'ADM' && $curso->user_id == Auth::user()->id)
+          <form action="/cursos/OutProfessor/{{$curso->id}}" method="POST"> 
+            @csrf
+            @method('PUT')
+            <input type="submit" class="btn btn-danger" value="Desistir do curso">
+          </form>
+        @endif
         </div>
       </div>
       <div class="col-md-12" id="description-container">
         <h3>Sobre o curso:</h3>
         <p class="curso-description">{{$curso->description}}</p>
-      </div> 
-          <h3>Alunos:</h3>
-            <ul id="lista-alunos">
-                @foreach($curso_A_P as $aluno)
-                    <li>Nome: {{$aluno->name}} - Nota: {{ $aluno->pivot->nota }}</li>
-                @endforeach
-            </ul>
+
+        @if(Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'ADM')
+          <a href="/cursos/edit/{{ $curso->id }}" class="btn btn-primary"></ion-icon> Editar</a>
+          <form action="/cursos/{{ $curso->id }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger">Deletar</button>
+          </form> 
+        @endif 
+      </div>
+      @if(Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'ADM' || Auth::user()->acesso == 'Professor')
+        <h3>Alunos:</h3>
+          <ul id="lista-alunos">
+            @foreach($curso_A_P as $aluno)
+              <li>Nome: {{$aluno->name}} - Nota: {{ $aluno->pivot->nota }}</li>
+            @endforeach
+          </ul>
+      @endif
     </div>
   </div>
 @endsection 

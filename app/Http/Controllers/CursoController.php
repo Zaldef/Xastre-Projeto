@@ -43,8 +43,8 @@ class CursoController extends Controller
         $user = auth()->user();
         $curso_A_P = $curso->users;
         $count = 0;
-        foreach($curso_A_P as $user){
-            if($user->id == $user->id){
+        foreach($curso_A_P as $uuser){
+            if($uuser->id == $user->id){
                 $count = 1;
             }
         }
@@ -118,10 +118,16 @@ class CursoController extends Controller
         return redirect('/home')->with('msg', 'Sua matricula foi removida!');
     }
 
-    public function EndMCurso($id){
+    public function CloseC($id){
         Curso::findOrFail($id)->update(['status' => '0']);
 
         return redirect('/cursos')->with('msg', 'Matriculas encerradas!');
+    }
+
+    public function OpenC($id){
+        Curso::findOrFail($id)->update(['status' => '1']);
+
+        return redirect('/cursos')->with('msg', 'Matriculas abertas!');
     }
 
     public function home(){

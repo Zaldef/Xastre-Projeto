@@ -34,7 +34,8 @@ Route::put('/user/update/{id}', [HomeController::class,'update'])->middleware('a
 Route::put('/cursos/update/{id}', [CursoController::class,'update'])->middleware('auth');
 Route::put('/cursos/InProfessor/{id}', [CursoController::class,'InProfessor'])->middleware('auth');
 Route::put('/cursos/OutProfessor/{id}', [CursoController::class,'OutProfessor'])->middleware('auth');
-Route::put('/cursos/EndMCurso/{id}', [CursoController::class,'EndMCurso'])->middleware('auth');
+Route::put('/cursos/CloseC/{id}', [CursoController::class,'CloseC'])->middleware('auth');
+Route::put('/cursos/OpenC/{id}', [CursoController::class,'OpenC'])->middleware('auth');
 
 Route::delete('/user/{id}', [HomeController::class,'delete'])->middleware('auth');
 Route::delete('/cursos/{id}', [CursoController::class,'delete'])->middleware('auth');

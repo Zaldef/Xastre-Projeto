@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'Editando:' . $curso->name)
+@section('title', 'Editando: ' . $curso->name)
 
 @section('content')
 @if(Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'ADM')
-<div id="cursos-create-container" class="col-md-6 offset-md-3">
-    <h1>Editando: {{ $curso->name }}</h1>
-    <form action="/cursos/update/{{ $curso->id }}" method="POST">
-     @csrf
-     @method('PUT')
+    <div id="cursos-create-container" class="col-md-6 offset-md-3">
+        <h1>Editando: {{ $curso->name }}</h1>
+        <form action="/cursos/update/{{ $curso->id }}" method="POST">
+         @csrf
+         @method('PUT')
         <div id="cursos-form" class="form-group">
             <label for="name">Nome do curso: </label>
             <input type="text" class="form-control" id="title" name="name" placeholder="Nome do curso:" value="{{ $curso->name }}">
@@ -22,11 +22,11 @@
             <input type="text" class="form-control" id="title" name="simplified_description" placeholder="Descrição simplificada do curso:" value="{{ $curso->simplified_description }}">
         </div>
         <div id="cursos-form" class="form-group">
-            <label for="alunosqtdmin">Mínimo de alunos para o curso acontecer:</label><br>
+            <label for="alunosqtdmin">Mínimo de alunos:</label><br>
             <input type="number" id="quantity" class="form-control" name="alunosqtdmin" min="1" max="100" value="{{ $curso->alunosqtdmin }}">
         </div>
         <div id="cursos-form" class="form-group">
-            <label for="alunosqtdmax">Máximo de alunos desse curso:</label><br>
+            <label for="alunosqtdmax">Máximo de alunos:</label><br>
             <input type="number" id="quantity" class="form-control" name="alunosqtdmax" min="1" max="100" value="{{ $curso->alunosqtdmax }}">
         </div>
         <div id="cursos-form" class="form-group">
