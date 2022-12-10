@@ -17,8 +17,8 @@
             <h3>Email: {{ Auth::user()->email }}</</h3>
             <h3>CPF: {{ Auth::user()->cpf }}</</h3>
             <h3>Endereço: {{ Auth::user()->endereco }}</</h3>
-            @if(Auth::user()->acesso == 'Aluno')
-            <h3>Filme: {{ Auth::user()->movie }}</h3>
+            @if(Auth::user()->acesso == 'Aluno' || Auth::user()->acesso == 'ADM')
+            <h3>Filme: {{ Auth::user()->filme }}</h3>
             @endif
             <h3>Ultimo Acesso: {{ Auth::user()->ultimo_acesso }}</</h3>
             <div class="buttons-container">

@@ -45,7 +45,7 @@ class HomeController extends Controller
 
     public function update(Request $request){
         $user = User::findOrFail($request->id);
-        if($user->acesso == 'Aluno'){
+        if($user->acesso == 'Aluno' or $user->acesso == 'ADM'){
             if(is_null($request->password)){
                 $user->update(['name' => $request->name, 'email' => $request->email, 'cpf' => $request->cpf, 'endereco' => $request->endereco, 'filme' => $request->filme]);
             }else{
@@ -53,7 +53,7 @@ class HomeController extends Controller
                 $password = $request->password;
                 $user->update(['password' => Hash::make($password)]);
             }
-        }elseif($user->acesso == 'Professor'){
+        }elseif($user->acesso == 'Professor' or $user->acesso == 'ADM'){
             if(is_null($request->password)){
                 $user->update(['name' => $request->name, 'email' => $request->email, 'cpf' => $request->cpf, 'endereco' => $request->endereco, 'image' => $request->image]);
             }else{

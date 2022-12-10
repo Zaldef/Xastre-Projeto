@@ -76,7 +76,9 @@
       <div class="col-md-12" id="description-container">
         <h3>Sobre o curso:</h3>
         <p class="curso-description">{{$curso->description}}</p>
-
+        @if(Auth::user()->acesso == 'Professor')
+          <a href="/cursos/edit/{{ $curso->id }}" class="btn btn-primary"></ion-icon> Editar Notas</a>
+          @endif 
         @if(Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'ADM')
           <a href="/cursos/edit/{{ $curso->id }}" class="btn btn-primary"></ion-icon> Editar</a>
           <form action="/cursos/{{ $curso->id }}" method="POST">

@@ -101,7 +101,7 @@ class CursoController extends Controller
     public function OutProfessor($id){
         Curso::findOrFail($id)->update(['user_id' => null]);
 
-        return redirect('/home')->with('msg', 'Você deixou de assumir o curso!');
+        return redirect('/home')->with('msg', 'Você deixou de ministrar o curso!');
     }
 
     public function InAluno($id){

@@ -1,5 +1,6 @@
 Arrumar css
-Views de usuario e pequenos bugs nas views de curso e registro
+Alunos aprovados e reprovados, media geral de cursos
+Home da secretaria com view de todos os alunos/professores
 
 
 

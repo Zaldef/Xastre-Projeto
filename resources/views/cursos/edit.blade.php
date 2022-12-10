@@ -3,12 +3,13 @@
 @section('title', 'Editando: ' . $curso->name)
 
 @section('content')
-@if(Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'ADM')
+@if(Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'ADM' || Auth::user()->acesso == 'Professor')
     <div id="cursos-create-container" class="col-md-6 offset-md-3">
         <h1>Editando: {{ $curso->name }}</h1>
         <form action="/cursos/update/{{ $curso->id }}" method="POST">
          @csrf
          @method('PUT')
+    @if(Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'ADM')
         <div id="cursos-form" class="form-group">
             <label for="name">Nome do curso: </label>
             <input type="text" class="form-control" id="title" name="name" placeholder="Nome do curso:" value="{{ $curso->name }}">
@@ -107,6 +108,7 @@
                 @endif
             @endif
         @endforeach
+    @endif
         <div id="cursos-form" class="form-group">
             <label for="title">Editar notas: </label>
                 @foreach($curso_A_P as $aluno)
