@@ -3,6 +3,7 @@
 @section('title', 'Register')
 
 @section('content')
+@if(Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'ADM')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -14,7 +15,7 @@
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Nome') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-end">Nome</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -28,7 +29,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="acesso" class="col-md-4 col-form-label text-md-end">{{ __('Acesso') }}</label>
+                            <label for="acesso" class="col-md-4 col-form-label text-md-end">Acesso</label>
 
                             <div class="col-md-6 form-check form-check-inline">
                                
@@ -38,6 +39,10 @@
                                     </div>
                                     <div class="form-check">
                                         <input type="radio" class="form-check-input" id="acesso" name="acesso" value="Professor"> Professor        
+                                        <label class="form-check-label" for="radio"></label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" id="acesso" name="acesso" value="Professor"> Secretaria        
                                         <label class="form-check-label" for="radio"></label>
                                     </div>
                                     @error('acesso')
@@ -63,7 +68,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="cpf" class="col-md-4 col-form-label text-md-end">{{ __('CPF') }}</label>
+                            <label for="cpf" class="col-md-4 col-form-label text-md-end">CPF</label>
 
                             <div class="col-md-6">
                                 <input id="cpf" type="cpf" class="form-control @error('cpf') is-invalid @enderror" name="cpf" value="{{ old('cpf') }}" required autocomplete="cpf">
@@ -77,7 +82,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="endereco" class="col-md-4 col-form-label text-md-end">{{ __('Endereço') }}</label>
+                            <label for="endereco" class="col-md-4 col-form-label text-md-end">Endereço</label>
 
                             <div class="col-md-6">
                                 <input id="endereco" type="endereco" class="form-control @error('endereco') is-invalid @enderror" name="endereco" value="{{ old('endereco') }}" required autocomplete="endereco">
@@ -91,7 +96,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="filme" class="col-md-4 col-form-label text-md-end">{{ __('Filme') }}</label>
+                            <label for="filme" class="col-md-4 col-form-label text-md-end">Filme</label>
 
                             <div class="col-md-6">
                                 <input id="filme" type="filme" class="form-control @error('filme') is-invalid @enderror" name="filme" value="{{ old('filme') }}" required autocomplete="filme">
@@ -139,4 +144,7 @@
         </div>
     </div>
 </div>
+@else
+<h1>Você não possui acesso, volte para <a href="/home">HOME!</a></h1>
+@endif
 @endsection

@@ -43,20 +43,20 @@ class CursoController extends Controller
         $user = auth()->user();
         $curso_A_P = $curso->users;
         $count = 0;
-        foreach($curso_A_P as $user){
-            if($user->id == $user->id){
+        foreach($curso_A_P as $uuser){
+            if($uuser->id == $user->id){
                 $count = 1;
             }
         }
         if(User::where('id', $curso->user_id)->exists()) {
-            $cursoProfessor = User::where('id', $curso->user_id)->first();
+            $curso_P = User::where('id', $curso->user_id)->first();
 
-            return view('cursos.show', ['curso' => $curso, 'cursoProfessor' => $cursoProfessor, 'curso_A_P' => $curso_A_P, 'count' => $count]);
+            return view('cursos.show', ['curso' => $curso, 'curso_P' => $curso_P, 'curso_A_P' => $curso_A_P, 'count' => $count]);
         }else{
             $curso->user_id = null;
-            $cursoProfessor = User::where('id', $curso->user_id)->first();
+            $curso_P = User::where('id', $curso->user_id)->first();
 
-            return view('cursos.show', ['curso' => $curso, 'cursoProfessor' => $cursoProfessor, 'curso_A_P' => $curso_A_P, 'count' => $count]);
+            return view('cursos.show', ['curso' => $curso, 'curso_P' => $curso_P, 'curso_A_P' => $curso_A_P, 'count' => $count]);
         }  
     }
 
@@ -69,14 +69,25 @@ class CursoController extends Controller
     }
     
     public function edit($id){
+        $users = User::all();
         $curso = Curso::findOrFail($id);
+        $curso_A_P = $curso->users;
 
-        return view('cursos.edit', ['curso' => $curso]);
+        return view('cursos.edit', ['curso' => $curso, 'users' => $users, 'curso_A_P' => $curso_A_P]);;
     }
 
     public function update(Request $request){
-        Curso::findOrFail($request->id)->update($request->all());
-
+        $curso = Curso::findOrFail($request->id);
+        $curso->update($request->only(['name', 'description', 'simplified_description', 'alunosqtdmin', 'alunosqtdmax', 'image', 'user_id']));
+        foreach($curso->users as $aluno){
+            $aluno->pivot->nota = $request->nota;
+        }
+        if(is_null($request->option)){
+        }else{
+            $curso->users()->detach($request->option);
+            $curso->users()->attach($request->option);
+        }
+        
         return redirect('/cursos')->with('msg', 'Curso editado com sucesso!');
     }
 
@@ -84,35 +95,48 @@ class CursoController extends Controller
         $user = auth()->user();
         Curso::findOrFail($request->id)->update(['user_id' => $user->id]);   
 
-        return redirect('/cursos')->with('msg', 'Curso assumido com sucesso!');
+        return redirect('/home')->with('msg', 'Curso assumido com sucesso!');
     }
 
     public function OutProfessor($id){
         Curso::findOrFail($id)->update(['user_id' => null]);
 
-        return redirect('/cursos')->with('msg', 'Você deixou de assumir o curso!');
+        return redirect('/home')->with('msg', 'Você deixou de assumir o curso!');
     }
 
     public function InAluno($id){
         $user = auth()->user();
         $user->cursos_A_P()->attach($id);
 
-        return redirect('/cursos')->with('msg', 'Sua matricula está confirmada!');
+        return redirect('/home')->with('msg', 'Sua matricula está confirmada!');
     }
 
     public function OutAluno($id){
         $user = auth()->user();
         $user->cursos_A_P()->detach($id);
 
-        return redirect('/cursos')->with('msg', 'Sua matricula foi removida!');
+        return redirect('/home')->with('msg', 'Sua matricula foi removida!');
     }
 
-    public function dashboard(){
+    public function CloseC($id){
+        Curso::findOrFail($id)->update(['status' => '0']);
+
+        return redirect('/cursos')->with('msg', 'Matriculas encerradas!');
+    }
+
+    public function OpenC($id){
+        Curso::findOrFail($id)->update(['status' => '1']);
+
+        return redirect('/cursos')->with('msg', 'Matriculas abertas!');
+    }
+
+    public function home(){
         $user = auth()->user();
         $cursos_A_P = $user->cursos_A_P;
         $cursos = Curso::all();
         $curso_P = $cursos->where('user_id', $user->id);
 
-        return view('user.dashboard', ['cursos_A_P' => $cursos_A_P,'curso_P' => $curso_P]);
+        return view('user.home', ['cursos_A_P' => $cursos_A_P,'curso_P' => $curso_P]);
     }
+
 }

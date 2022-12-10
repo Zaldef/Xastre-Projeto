@@ -20,15 +20,29 @@
     @endif
      
     <div id="cards-container" class="row">
-        @foreach($cursos as $cursos)
+        @foreach($cursos as $curso)
         <div class="card col-md-3">
-            <img src="/img/cursos/{{$cursos->image}}.jpg" alt="{{ $cursos->name }}">
+            <img src="/img/cursos/{{$curso->image}}.jpg" alt="{{ $curso->name }}">
             <div class="card-body">
-                <h5 class="card-title">{{ $cursos->name }}</h5>
-                <a href="/cursos/{{$cursos->id}}" class="btn btn-primary">Saber mais</a>
-                <p></p>
+                <h5 class="card-title">{{ $curso->name }}</h5>
+                <h6>{{ $curso->simplified_description}}</h6>
+                @if(count($curso->users) < $curso->alunosqtdmin && $curso->status == '1')
+                    <h6>Matrículas Abertas - Mínimo de alunos não atingido!</h6>
+                @elseif(count($curso->users) >= $curso->minAlunos && count($curso->users) < $curso->alunosqtdmax && $curso->status == '1') 
+                    <h6>Matrículas Abertas - Curso acontecerá!</h6>
+                @else
+                    <h6>Matrículas Encerradas</h6>
+                @endif
+                <p class="card-participants"> {{ count($curso->users) }} Participantes</p>
+                <a href="/cursos/{{$curso->id}}" class="btn btn-primary">Saber mais</a>
             </div>
         </div>
         @endforeach
+        @if(count($cursos) == 0 && $search) 
+            <p>Não foi possível encontrar nenhum curso com {{ $search }}! <a href="/cursos">Ver todos os cursos</a></p>
+        @elseif(count($cursos) == 0)
+            <p>Não há cursos disponíveis</p>
+        @endif
+    </div>
 
 @endsection 

@@ -1,32 +1,32 @@
 @extends('layouts.app')
 
-@section('title', 'Editando:' . $curso->name)
+@section('title', 'Editando: ' . $curso->name)
 
 @section('content')
-
-<div id="cursos-create-container" class="col-md-6 offset-md-3">
-    <h1>Editando: {{ $curso->name }}</h1>
-    <form action="/cursos/update/{{ $curso->id }}" method="POST">
-     @csrf
-     @method('PUT')
+@if(Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'ADM')
+    <div id="cursos-create-container" class="col-md-6 offset-md-3">
+        <h1>Editando: {{ $curso->name }}</h1>
+        <form action="/cursos/update/{{ $curso->id }}" method="POST">
+         @csrf
+         @method('PUT')
         <div id="cursos-form" class="form-group">
             <label for="name">Nome do curso: </label>
             <input type="text" class="form-control" id="title" name="name" placeholder="Nome do curso:" value="{{ $curso->name }}">
         </div>
         <div id="cursos-form" class="form-group">
-            <label for="descricaocompleta">Descrição completa: </label>
+            <label for="description">Descrição completa: </label>
             <textarea type="text" class="form-control" id="title" name="description" rows="3" placeholder="Descrição completa do curso:">{{ $curso->description }}</textarea>
         </div>
         <div id="cursos-form" class="form-group">
-            <label for="descricaosimples">Descrição simplificada: </label>
+            <label for="simplified_description">Descrição simplificada: </label>
             <input type="text" class="form-control" id="title" name="simplified_description" placeholder="Descrição simplificada do curso:" value="{{ $curso->simplified_description }}">
         </div>
         <div id="cursos-form" class="form-group">
-            <label for="minAlunos">Mínimo de alunos para o curso acontecer:</label><br>
+            <label for="alunosqtdmin">Mínimo de alunos:</label><br>
             <input type="number" id="quantity" class="form-control" name="alunosqtdmin" min="1" max="100" value="{{ $curso->alunosqtdmin }}">
         </div>
         <div id="cursos-form" class="form-group">
-            <label for="maxAlunos">Máximo de alunos desse curso:</label><br>
+            <label for="alunosqtdmax">Máximo de alunos:</label><br>
             <input type="number" id="quantity" class="form-control" name="alunosqtdmax" min="1" max="100" value="{{ $curso->alunosqtdmax }}">
         </div>
         <div id="cursos-form" class="form-group">
@@ -65,7 +65,61 @@
                 <img src="/img/cursos/curso3.jpg">
             </div>
         @endif
+
+        <div id="cursos-form" class="form-group">
+            <label for="nome">Matricular alunos: </label>
+        </div>
+        @foreach($users as $user)
+                @if($user->acesso == 'Aluno')
+                    <div class="form-check-curso">
+                        <input class="form-check-input" type="checkbox" id="check" name="option[]" value="{{ $user->id }}"> {{ $user->name }}
+                        <label class="form-check-label"></label> 
+                    </div>
+                @endif
+        @endforeach
+
+        <div id="cursos-form" class="form-group">
+            <label for="title">Escolha professor: </label>
+        </div>
+        @if($curso->user_id == 0)
+            <div class="form-check-curso">
+                <input class="form-check-input" type="radio" name="user_id" value="0" checked> None
+                <label class="form-check-label"></label> 
+            </div>
+        @else
+            <div class="form-check-curso">
+                <input class="form-check-input" type="radio" name="user_id" value="0"> None
+                <label class="form-check-label"></label> 
+            </div>
+        @endif
+        @foreach ($users as $user)
+            @if($user->acesso == 'Professor')
+                @if($curso->user_id == $user->id)
+                    <div class="form-check-curso">
+                        <input class="form-check-input" type="radio" name="user_id" value="{{ $user->id }}" checked> {{ $user->name }}
+                        <label class="form-check-label"></label> 
+                    </div>
+                @else
+                    <div class="form-check-curso">
+                        <input class="form-check-input" type="radio" name="user_id" value="{{ $user->id }}"> {{ $user->name }}
+                        <label class="form-check-label"></label> 
+                    </div>
+                @endif
+            @endif
+        @endforeach
+        <div id="cursos-form" class="form-group">
+            <label for="title">Editar notas: </label>
+                @foreach($curso_A_P as $aluno)
+                    <div class="row">
+                            <label for="title">{{$aluno->name}}: </label>
+                            <input type="text" class="form-control" id="title" name="nota[]" value="{{ $aluno->pivot->nota }}">
+                    </div>
+                @endforeach
+        </div>
         <input type="submit" class="btn btn-primary" value="Editar curso">
     </form>
 </div>
+@else
+<h1>Você não possui acesso, volte para <a href="/home">HOME!</a></h1>
+@endif
 @endsection

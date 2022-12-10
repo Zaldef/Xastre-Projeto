@@ -52,6 +52,6 @@ class User extends Authenticatable
     }
 
     public function cursos_A_P(){
-        return $this->belongsToMany('\App\Models\Curso');
+        return $this->belongsToMany('\App\Models\Curso')->withPivot('nota');
     }
 }
