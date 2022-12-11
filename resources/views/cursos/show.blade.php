@@ -50,21 +50,21 @@
             <input type="submit" class="btn btn-primary" value="Matricular-se">
           </form>
         @endif
-        @if(Auth::user()->acesso == 'Aluno' || Auth::user()->acesso == 'ADM' && $count == 1 )
+        @if((Auth::user()->acesso == 'Aluno' || Auth::user()->acesso == 'ADM') && $count == 1 )
           <form action="/cursos/OutAluno/{{$curso->id}}" method="POST">
             @csrf
             @method('DELETE')
             <input type="submit" class="btn btn-danger" value="Desmatricular-se do curso">
           </form>
         @endif
-        @if(Auth::user()->acesso == 'Professor' || Auth::user()->acesso == 'ADM' && $curso->user_id == null) 
+        @if((Auth::user()->acesso == 'Professor' || Auth::user()->acesso == 'ADM') && $curso->user_id == null) 
           <form action="/cursos/InProfessor/{{$curso->id}}" method="POST"> 
             @csrf
             @method('PUT')
             <input type="submit" class="btn btn-primary" value="Assumir curso">
           </form>
         @endif
-        @if(Auth::user()->acesso == 'Professor' || Auth::user()->acesso == 'ADM' && $curso->user_id == Auth::user()->id)
+        @if((Auth::user()->acesso == 'Professor' || Auth::user()->acesso == 'ADM') && $curso->user_id == Auth::user()->id)
           <form action="/cursos/OutProfessor/{{$curso->id}}" method="POST"> 
             @csrf
             @method('PUT')

@@ -43,35 +43,35 @@
             <p>Você não possui cursos a fazer, <a href="/cursos">Matricule-se!</a></p>
         @endif
     @endif
-        @if(Auth::user()->acesso == 'Professor' || Auth::user()->acesso == 'ADM')
-            @if(count($curso_P) > 0)
-                <table class="table">
-                    <thead>
+    @if(Auth::user()->acesso == 'Professor' || Auth::user()->acesso == 'ADM')
+        @if(count($curso_P) > 0)
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Participantes</th>
+                        <th scope="col"><ion-icon name="trash"></ion-icon></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($curso_P as $curso)
                         <tr>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Participantes</th>
-                            <th scope="col"><ion-icon name="trash"></ion-icon></th>
+                            <td><a href="/cursos/{{ $curso->id }}">{{ $curso->name }}</a></td>
+                            <td>{{ count($curso->users) }}/{{ $curso->alunosqtdmax }}</td>
+                            <td>
+                                <form action="/cursos/OutProfessor/{{$curso->id}}" method="POST"> 
+                                    @csrf
+                                    @method('PUT')
+                                    <input type="submit" class="btn btn-danger" value="Desistir do curso">
+                                </form>
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($curso_P as $curso)
-                            <tr>
-                                <td><a href="/cursos/{{ $curso->id }}">{{ $curso->name }}</a></td>
-                                <td>{{ count($curso->users) }}/{{ $curso->alunosqtdmax }}</td>
-                                <td>
-                                    <form action="/cursos/OutProfessor/{{$curso->id}}" method="POST"> 
-                                        @csrf
-                                        @method('PUT')
-                                        <input type="submit" class="btn btn-danger" value="Desistir do curso">
-                                      </form>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            @else
-                <p class="aviso">Você ainda não é professor de nenhum curso!</p>
-            @endif
+                    @endforeach
+                </tbody>
+            </table>
+        @else
+            <p>Você ainda não é professor de nenhum curso!</p>
         @endif
-    </div>
+    @endif
+</div>
 @endsection 

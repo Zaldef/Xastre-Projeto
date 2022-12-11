@@ -84,12 +84,12 @@
         </div>
         @if($curso->user_id == 0)
             <div class="form-check-curso">
-                <input class="form-check-input" type="radio" name="user_id" value="0" checked> None
+                <input class="form-check-input" type="radio" name="user_id" value="0" checked> Sem Professor
                 <label class="form-check-label"></label> 
             </div>
         @else
             <div class="form-check-curso">
-                <input class="form-check-input" type="radio" name="user_id" value="0"> None
+                <input class="form-check-input" type="radio" name="user_id" value="0"> Sem Professor
                 <label class="form-check-label"></label> 
             </div>
         @endif
@@ -109,15 +109,15 @@
             @endif
         @endforeach
     @endif
-        <div id="cursos-form" class="form-group">
-            <label for="title">Editar notas: </label>
-                @foreach($curso_A_P as $aluno)
-                    <div class="row">
-                            <label for="title">{{$aluno->name}}: </label>
-                            <input type="text" class="form-control" id="title" name="nota[]" value="{{ $aluno->pivot->nota }}">
-                    </div>
-                @endforeach
-        </div>
+    <div id="cursos-form" class="form-group">
+        <label for="title">Editar notas: </label>
+        @foreach($curso_A_P as $aluno)
+            <div class="row">
+                <label for="title">{{$aluno->name}}: </label>
+                <input type="text" class="form-control" id="title" name="nota[]" value="{{ $aluno->pivot->nota }}">
+            </div>
+        @endforeach
+    </div>
         <input type="submit" class="btn btn-primary" value="Editar curso">
     </form>
 </div>
