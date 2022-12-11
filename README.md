@@ -61,7 +61,48 @@ Subir migrations + seeds
 ```sh
 php artisan migrate --seed
 ```
+## Logins
+### ADM
 
+login: 
+```
+ADM@REX.edu.br
+```
+senha: 
+```
+123456789
+```
+
+### Secretaria
+
+login: 
+```
+secretaria@REX.edu.br
+```
+senha: 
+```
+123456789
+```
+### Professor
+
+login: 
+```
+professor1@example.com
+```
+senha: 
+```
+123456789
+```
+### Aluno
+
+login: 
+```
+aluno1@example.com
+```
+senha:
+```
+123456789
+```
 Acesse o projeto
 [http://localhost:8080](http://localhost:8080)
 
