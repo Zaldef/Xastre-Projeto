@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Editando: ' . Auth::user()->acesso)
+@section('title', 'Editando: ' . Auth::user()->name)
 
 @section('content')
 
