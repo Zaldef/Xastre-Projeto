@@ -1,7 +1,9 @@
-Arrumar:
-     sistema de notas
-Falta: 
-Alunos aprovados e reprovados, media geral de cursos
+
+Média geral de todas as médias.
+Quantidade de alunos aprovados (médias finais maiores e iguais à 5,0) junto com a % que esse número representa no curso.
+Quantidade de alunos reprovados (médias finais menores de 5,0) junto com a % que esse número representa no curso.
+
+
 
 
 
