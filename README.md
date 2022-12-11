@@ -23,7 +23,7 @@ Crie o Arquivo .env
 cp .env.example .env
 ```
 
-Atualize as variáveis de ambiente do arquivo .env
+Atualize as variáveis de ambiente do arquivo .env ( Caso não sejam essas)
 
 ```dosini
 APP_NAME=REX
@@ -69,6 +69,5 @@ Acesse o phpmyadmin
 [http://localhost:8081](http://localhost:8081)
 
 ## Autores
-
-| [`<img src="https://avatars.githubusercontent.com/u/78030935?v=4" width=115><br>``<sub>`Zaldef`</sub>`](https://github.com/Zaldef) | [`<img src="https://avatars.githubusercontent.com/u/111884977?v=4" width=115><br>``<sub>`leticiamaiza`</sub>`](https://github.com/leticiamaiza) |
-| :-----------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [<img src="https://avatars.githubusercontent.com/u/78030935?v=4" width=115><br><sub>Zaldef</sub>](https://github.com/Zaldef) |  [<img src="https://avatars.githubusercontent.com/u/111884977?v=4" width=115><br><sub>leticiamaiza</sub>](https://github.com/leticiamaiza) | 
+| :---: | :---: |
