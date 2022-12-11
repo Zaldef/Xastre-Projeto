@@ -2,27 +2,27 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-body{
+body{ 
   min-height: 100vh;
   padding-bottom: 100px;
   position: relative;
 }
 
-.row{
+.row{ 
   margin: 0px;
   margin-top: 15px;
 }
 
-container-fluid {
+container-fluid { 
   padding: 0;
 }
 
-header{
+header{ 
   background-color: #ece4d4;
   border-bottom: 1px solid #c2bbaf;
 }
 
-.msg{
+.msg{ 
   background-color: #d4edda;
   color: #155724;
   border: 1px solid #c3e6cb;
@@ -33,96 +33,96 @@ header{
 }
 
 .nav-link{
-  color: #5a3a28;
+  color: #5a3a28; 
 }
 
-.navbar-brand img {
+.navbar-brand img { 
   width: 50px;
   margin-left: -5rem;
 }
 
-.btn-danger{
+.btn-danger{ 
   margin-top: 10px;
 }
 
-.btn-primary {
+.btn-primary { 
   background-color: #92c44c;
   border: 2px solid #b2c49b;
   margin-top: 10px; 
 }
 
-.btn-primary:hover {
+.btn-primary:hover { 
   background-color: #92c44c;
   border-color: #2d420f;
 }
 
-#info-container {
+#info-container { 
   margin-top: 30px;
   }
 
-#info-container form{
+#info-container form{ 
   display: inline-block;
   margin-top: 15px;
 }
 
-#info-container h1 {
+#info-container h1 { 
   font-size: 36px;
   font-weight: 900;
 }
 
-#info-container p {
+#info-container p { 
   margin: 0;
   font-size: 14px;
   display: flex;
 }
 
 #info-container h3,
-#description-container h3 {
+#description-container h3 { 
 font-size: 20px;
 font-weight: bold;
 }
 
-#info-container ion-icon {
+#info-container ion-icon { 
 font-size: 20px;
 color: #92c44c;
 margin-right: 5px;
 }
 
-#info-container #curso-submit {
+#info-container #curso-submit { 
 margin: 20px 0;
 }
 
 .form-group{
-  color: #5a3a28; 
+  color: #5a3a28;  
 }
 
-.form-group label{
+.form-group label{ 
   font-size: 20px;
 }
 
-#cursos-form{
+#cursos-form{ 
   margin-top: 15px;
 }
 
-.nav-item{
+.nav-item{ 
   margin-right: 25px;
 }
 
-h1 {
+h1 { 
+  color: green;
+}
+ 
+h2 { 
   color: green;
 }
 
-h2 {
-  color: green;
-}
-
-h3 {
+h3 { 
   font-size: 20px;
   font-weight: bold;
   color: green;
 }
 
-#search-container {
+#search-container { 
   background-image: url("../img/Plano.jpg");
   background-size: cover;
   background-position: center;
@@ -131,57 +131,57 @@ h3 {
   text-align: center;
 }
 
-#search-container h1 {
+#search-container h1 { 
   color: #166248;
   margin-bottom: 30px;
   font-weight: 900;
 }
 
-#search-container form {
+#search-container form { 
   width: 50%;
   margin: 0 auto;
 }
 
-#cursos-container{
+#cursos-container{ 
   padding: 50px;
 }
 
-#cursos-container h2{
+#cursos-container h2{ 
   color: #008000;
   margin-bottom: 10px;
 }
 
-#cards-container{
+#cards-container{ 
   display: flex;
 }
 
-#cursos-container .card {
-  flex: 1 1 24%;
+#cursos-container .card { 
+  flex: 1 1 0%;
   max-width: 25%;
   border-radius: 10px;
   padding: 0;
-  margin: .5%px;
+  margin: 5%px;
 }
 
-#cursos-container img {
+#cursos-container img { 
   max-height: 150px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
-.card .card-title {
+.card .card-title { 
   color: #166248;
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 30px;
 }
 
-.card-participants {
+.card-participants { 
   font-size: 14px;
-  color: #757575
+  color: #5a3a28
 }
 
-.form-check img{
+.form-check img{ 
   max-width: 300px;
   max-height: 300px;
   width: auto;
@@ -189,53 +189,30 @@ h3 {
   padding: 10px;
 }
 
-#imagecurso-container img {
-  max-width: 400px;
-  max-height: 400px;
-  width: auto;
-  height: auto;
-  padding: 10px;
-}
-
-.home-title-container {
+.home-title-container {  
   margin-bottom: 30px;
   margin-top: 30px
 }
 
-.home-cursos-container th {
-  width: 20%;
+.home-cursos-container th {  
+  width: 15%;
   color: #008000;
 }
 
-.home-cursos-container td {
-  width: 20%;
-  color: #5a3a28;
+.home-cursos-container td {  
+  width: 15%;
+  color: #000;
 }
 
-.aviso {
-  color: #fff;
+#image-container img{ 
+  width: 300px;
 }
 
-#image-container img{
-  width: 375px;
+.form-check-curso{ 
+  color: #92c44c;
 }
 
-.form-check-curso{
-  color: #5a3a28;
-}
-
-#navbar {
-  justify-content: space-between;
-  background-color: #620080;
-  padding: 5px 0;
-}
-
-#app .container{
-  color: #171614;
-
-}
-
-footer {
+footer { 
   text-align: center;
   background-color: #008000;
   color: #FFF;
@@ -245,7 +222,7 @@ footer {
   width: 100%;
 }
 
-footer p {
+footer p { 
   margin-bottom: 0;
 }
 
@@ -258,14 +235,14 @@ footer p {
   margin-bottom: 10px;
 }
 
-#cursos-container .subtitle {
-  color: #757575;
+#cursos-container .subtitle { 
+  color: #5a3a28;
   margin-bottom: 30px;
 }
 
-.card-alunos {
+.card-alunos { 
   font-size: 14px;
-  color: #757575;
+  color: #5a3a28;
 }
 
 #curso-create-container {

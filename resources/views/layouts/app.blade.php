@@ -48,7 +48,7 @@
                             @if(Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'ADM')
                                 @if (Route::has('register'))
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                        <a class="nav-link" href="{{ route('register') }}">Novo Cadastro</a>
                                     </li>
                                 @endif
                             @endif
@@ -58,9 +58,9 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 @if(Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'ADM')
-                                <a class="dropdown-item" href="/cursos/cadastro">Novo curso</a>
+                                    <a class="dropdown-item" href="/cursos/cadastro">Novo curso</a>
                                 @endif
-                                <a class="dropdown-item" href="/cursos">Todos cursos</a>
+                                    <a class="dropdown-item" href="/cursos">Todos cursos</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -68,7 +68,7 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/user/show">
-                                        {{ __('Meus Dados') }}
+                                        Meus Dados
                                     </a>
 
                                     <a class="dropdown-item" href="/home">

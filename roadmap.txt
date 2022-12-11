@@ -1,7 +1,7 @@
-Arrumar css
-Views de usuario e pequenos bugs nas views de curso e registro
-
-
+Arrumar:
+     sistema de notas
+Falta: 
+Alunos aprovados e reprovados, media geral de cursos
 
 
 

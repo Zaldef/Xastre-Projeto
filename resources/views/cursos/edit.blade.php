@@ -3,12 +3,13 @@
 @section('title', 'Editando: ' . $curso->name)
 
 @section('content')
-@if(Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'ADM')
+@if(Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'ADM' || Auth::user()->acesso == 'Professor')
     <div id="cursos-create-container" class="col-md-6 offset-md-3">
         <h1>Editando: {{ $curso->name }}</h1>
         <form action="/cursos/update/{{ $curso->id }}" method="POST">
          @csrf
          @method('PUT')
+    @if(Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'ADM')
         <div id="cursos-form" class="form-group">
             <label for="name">Nome do curso: </label>
             <input type="text" class="form-control" id="title" name="name" placeholder="Nome do curso:" value="{{ $curso->name }}">
@@ -83,12 +84,12 @@
         </div>
         @if($curso->user_id == 0)
             <div class="form-check-curso">
-                <input class="form-check-input" type="radio" name="user_id" value="0" checked> None
+                <input class="form-check-input" type="radio" name="user_id" value="0" checked> Sem Professor
                 <label class="form-check-label"></label> 
             </div>
         @else
             <div class="form-check-curso">
-                <input class="form-check-input" type="radio" name="user_id" value="0"> None
+                <input class="form-check-input" type="radio" name="user_id" value="0"> Sem Professor
                 <label class="form-check-label"></label> 
             </div>
         @endif
@@ -107,15 +108,16 @@
                 @endif
             @endif
         @endforeach
-        <div id="cursos-form" class="form-group">
-            <label for="title">Editar notas: </label>
-                @foreach($curso_A_P as $aluno)
-                    <div class="row">
-                            <label for="title">{{$aluno->name}}: </label>
-                            <input type="text" class="form-control" id="title" name="nota[]" value="{{ $aluno->pivot->nota }}">
-                    </div>
-                @endforeach
-        </div>
+    @endif
+    <div id="cursos-form" class="form-group">
+        <label for="title">Editar notas: </label>
+        @foreach($curso_A_P as $aluno)
+            <div class="row">
+                <label for="title">{{$aluno->name}}: </label>
+                <input type="text" class="form-control" id="title" name="nota[]" value="{{ $aluno->pivot->nota }}">
+            </div>
+        @endforeach
+    </div>
         <input type="submit" class="btn btn-primary" value="Editar curso">
     </form>
 </div>
