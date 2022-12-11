@@ -4,8 +4,6 @@ Falta:
 Alunos aprovados e reprovados, media geral de cursos
 
 
-searchbar na home de secretaria, arrumar botao de edit
-
 
           
 

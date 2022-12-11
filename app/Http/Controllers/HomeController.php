@@ -35,6 +35,11 @@ class HomeController extends Controller
         return view ('user.edit');
     }
 
+    public function edit2($id){
+        $user = User::findOrFail($id);
+        return view ('user.edit2',['user' => $user]);
+    }
+
     public function delete($id) {
         User::findOrFail($id)->delete();
         $user = auth()->user();
@@ -56,12 +61,19 @@ class HomeController extends Controller
     }
     
     public function home(){
-        $users = User::all();
+        $search = request('search');
+        if($search) {
+            $users= User::where([
+                ['name', 'like', '%'.$search.'%']
+            ])->get();
+        } else {
+            $users = User::all();
+        };
         $user = auth()->user();
         $cursos_A_P = $user->cursos_A_P;
         $cursos = Curso::all();
         $curso_P = $cursos->where('user_id', $user->id);
 
-        return view('user.home', ['cursos_A_P' => $cursos_A_P,'users' => $users,'curso_P' => $curso_P]);
+        return view('user.home', ['cursos_A_P' => $cursos_A_P,'users' => $users,'curso_P' => $curso_P, 'search' => $search]);
     }
 }

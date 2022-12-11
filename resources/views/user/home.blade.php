@@ -74,35 +74,44 @@
         @endif
     @endif
     @if(Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'ADM')
-    <h1 class="text-center">Tabela de Usuarios</h1> 
-    <table class="table table-striped table-hover table-bordered ">
-        <thead>
-            <tr>
-                <th scope="col">Nome</th>
-                <th scope="col">Acesso</th>
-                <th scope="col">Editar</th>
-                <th scope="col">Deletar</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($users as $user)
+        <div id="search-container" class="col-md-12">
+            <h1>Busque um Usuario</h1>
+            <form action="/home" method="GET">
+                <input type="text" id="search" name="search" class="form-control" placeholder="Procurar...">
+            </form>
+        </div>
+        <h1 class="text-center">Tabela de Usuarios</h1> 
+        <table class="table table-striped table-hover table-bordered ">
+            <thead>
                 <tr>
-                    <td> {{ $user->name}}</td>
-                    <td> {{ $user->acesso}}</td>
-                    <td> 
-                        <a href="/user/edit/{{$user->id}}" class="btn btn-primary">Editar</a>
-                    </td>
-                    <td>
-                        <form action="/user/{{$user->id}}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Deletar</button>
-                        </form>
-                    </td>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Acesso</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Deletar</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach($users as $user)
+                    <tr>
+                        <td> {{ $user->name}}</td>
+                        <td> {{ $user->acesso}}</td>
+                        <td> 
+                            <a href="/user/edit2/{{$user->id}}" class="btn btn-primary">Editar</a>
+                        </td>
+                        <td>
+                            <form action="/user/{{$user->id}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Deletar</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+        @if(count($users) == 0 && $search) 
+        <p>Não foi possível encontrar nenhum usuario com {{ $search }}! <a href="/home">Ver todos os usuarios</a></p>
+        @endif
     @endif
 </div>
 @endsection 
