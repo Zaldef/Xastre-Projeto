@@ -114,7 +114,7 @@
         @foreach($curso_A_P as $aluno)
             <div class="row">
                 <label for="title">{{$aluno->name}}: </label>
-                <input type="text" class="form-control" id="title" name="nota[]" value="{{ $aluno->pivot->nota }}">
+                <input type="text" class="form-control" id="title" name="nota" value="{{ $aluno->pivot->nota }}">
             </div>
         @endforeach
     </div>

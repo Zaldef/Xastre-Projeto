@@ -92,20 +92,22 @@
             </thead>
             <tbody>
                 @foreach($users as $user)
-                    <tr>
-                        <td> {{ $user->name}}</td>
-                        <td> {{ $user->acesso}}</td>
-                        <td> 
-                            <a href="/user/edit2/{{$user->id}}" class="btn btn-primary">Editar</a>
-                        </td>
-                        <td>
-                            <form action="/user/{{$user->id}}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Deletar</button>
-                            </form>
-                        </td>
-                    </tr>
+                    @if($user->acesso != 'ADM')
+                        <tr>
+                            <td> {{ $user->name}}</td>
+                            <td> {{ $user->acesso}}</td>
+                            <td> 
+                                <a href="/user/edit2/{{$user->id}}" class="btn btn-primary">Editar</a>
+                            </td>
+                            <td>
+                                <form action="/user/{{$user->id}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Deletar</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endif
                 @endforeach
             </tbody>
         </table>

@@ -79,14 +79,14 @@ class CursoController extends Controller
     public function update(Request $request){
         $curso = Curso::findOrFail($request->id);
         $curso->update($request->only(['name', 'description', 'simplified_description', 'alunosqtdmin', 'alunosqtdmax', 'image', 'user_id']));
-        foreach($curso->users as $aluno){
-            $aluno->pivot->nota = $request->nota;
-        }
         if(is_null($request->option)){
         }else{
             $curso->users()->detach($request->option);
             $curso->users()->attach($request->option);
         }
+            $curso->users()->updateExistingPivot($curso->users, ['nota' =>$request->nota]);
+
+
         
         return redirect('/cursos')->with('msg', 'Curso editado com sucesso!');
     }

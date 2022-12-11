@@ -89,12 +89,31 @@
         @endif 
       </div>
       @if(Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'ADM' || Auth::user()->acesso == 'Professor')
-        <h3>Alunos:</h3>
-          <ul id="lista-alunos">
-            @foreach($curso_A_P as $aluno)
-              <li>Nome: {{$aluno->name}} - Nota: {{ $aluno->pivot->nota }}</li>
-            @endforeach
-          </ul>
+        <h3 class="text-center">Alunos</h3>
+          <table class="table table-striped table-hover table-bordered ">
+            <thead>
+              <tr>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Nota</th>
+                  <th scope="col">Situação</th> 
+              </tr>
+            </thead>
+            <tbody>
+              @foreach($curso_A_P as $aluno)
+                <tr>
+                  <td>{{$aluno->name}} </td>
+                  <td>{{ $aluno->pivot->nota }}</td>
+                  <td>
+                    @if( $aluno->pivot->nota >= 5)
+                      APROVADO 
+                    @else
+                      REPROVADO
+                    @endif
+                  </td>
+                </tr>
+              @endforeach
+            </tbody>
+          </table>
       @endif
     </div>
   </div>
