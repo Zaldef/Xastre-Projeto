@@ -1,17 +1,10 @@
 Arrumar:
-     css
      sistema de notas
-
-
-     Home de professor, "Vc nao ministra nenhum curso atualmente!"
 Falta: 
 Alunos aprovados e reprovados, media geral de cursos
-Home da secretaria com view de todos os alunos/professores(ADM todos os acesso de secretaria)
-    Usuario com links para dados() 
 
 
-
-
+searchbar na home de secretaria, arrumar botao de edit
 
 
           

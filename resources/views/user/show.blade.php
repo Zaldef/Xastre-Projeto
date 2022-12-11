@@ -6,7 +6,7 @@
 
 <div class="col-md10 offset-md-1">
     <div class="row">
-        @if(Auth::user()->acesso == 'Professor' || Auth::user()->acesso == 'ADM')
+        @if(Auth::user()->acesso == 'Professor' || Auth::user()->acesso == 'ADM' || Auth::user()->acesso == 'Secretaria')
         <div id="image-container" class="col-md-4">
             <img src="/img/avatares/{{ Auth::user()->image }}.png" alt="">
         </div>

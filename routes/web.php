@@ -21,7 +21,7 @@ Auth::routes();
 Route::get('/', function () {return view('/auth/login');});
 Route::get('/user/show', [HomeController::class,'show'])->middleware('auth');
 Route::get('/user/edit/{id}', [HomeController::class,'edit'])->middleware('auth');
-Route::get('/home', [CursoController::class,'home'])->middleware('auth');
+Route::get('/home', [HomeController::class,'home'])->middleware('auth');
 Route::get('/cursos', [CursoController::class , 'index'])->middleware('auth');
 Route::get('/cursos/cadastro', [CursoController::class , 'create'])->middleware('auth');
 Route::get('/cursos/{id}', [CursoController::class , 'show'])->middleware('auth');

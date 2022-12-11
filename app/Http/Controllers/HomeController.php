@@ -40,29 +40,28 @@ class HomeController extends Controller
         $user = auth()->user();
         $user->cursos_A_P()->detach($id);
 
-        return redirect('/cursos')->with('msg','Cadastro excluido com sucesso !');
+        return redirect('/home')->with('msg','Cadastro excluido com sucesso !');
     }
 
     public function update(Request $request){
         $user = User::findOrFail($request->id);
-        if($user->acesso == 'Aluno' or $user->acesso == 'ADM'){
-            if(is_null($request->password)){
-                $user->update(['name' => $request->name, 'email' => $request->email, 'cpf' => $request->cpf, 'endereco' => $request->endereco, 'filme' => $request->filme]);
-            }else{
-                $user->update($request->all());
-                $password = $request->password;
-                $user->update(['password' => Hash::make($password)]);
-            }
-        }elseif($user->acesso == 'Professor' or $user->acesso == 'ADM'){
-            if(is_null($request->password)){
-                $user->update(['name' => $request->name, 'email' => $request->email, 'cpf' => $request->cpf, 'endereco' => $request->endereco, 'image' => $request->image]);
-            }else{
-                $user->update($request->all());
-                $password = $request->password;
-                $user->update(['password' => Hash::make($password)]);
-            }
+        if(is_null($request->password)){
+            $user->update(['name' => $request->name, 'email' => $request->email, 'cpf' => $request->cpf, 'endereco' => $request->endereco, 'filme' => $request->filme, 'image' => $request->image]);
+        }else{
+            $user->update($request->all());
+            $password = $request->password;
+            $user->update(['password' => Hash::make($password)]);
         }
-
         return redirect('user/show')->with('msg', 'Perfil atualizado com sucesso');
-    }   
+    }
+    
+    public function home(){
+        $users = User::all();
+        $user = auth()->user();
+        $cursos_A_P = $user->cursos_A_P;
+        $cursos = Curso::all();
+        $curso_P = $cursos->where('user_id', $user->id);
+
+        return view('user.home', ['cursos_A_P' => $cursos_A_P,'users' => $users,'curso_P' => $curso_P]);
+    }
 }

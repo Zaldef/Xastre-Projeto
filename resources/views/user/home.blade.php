@@ -6,13 +6,13 @@
 
 @if(Auth::user()->acesso == 'Aluno' || Auth::user()->acesso == 'Professor' || Auth::user()->acesso == 'ADM')
     <div class="col-md-10 offset-md-1 home-title-container">
-        <h1>Meus cursos</h1>
+        <h1 class="text-center">Meus cursos</h1>
     </div>
 @endif
 <div class="col-md-10 offset-md-1 home-cursos-container">
     @if(Auth::user()->acesso == 'Aluno' || Auth::user()->acesso == 'ADM')
         @if(count($cursos_A_P) > 0)
-            <table class="table">
+            <table class="table table-striped table-hover table-bordered ">
                 <thead>
                     <tr>
                         <th scope="col">Nome</th>
@@ -45,7 +45,7 @@
     @endif
     @if(Auth::user()->acesso == 'Professor' || Auth::user()->acesso == 'ADM')
         @if(count($curso_P) > 0)
-            <table class="table">
+            <table class="table table-striped table-hover table-bordered ">
                 <thead>
                     <tr>
                         <th scope="col">Nome</th>
@@ -72,6 +72,37 @@
         @else
             <p>Você ainda não é professor de nenhum curso!</p>
         @endif
+    @endif
+    @if(Auth::user()->acesso == 'Secretaria' || Auth::user()->acesso == 'ADM')
+    <h1 class="text-center">Tabela de Usuarios</h1> 
+    <table class="table table-striped table-hover table-bordered ">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Acesso</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Deletar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($users as $user)
+                <tr>
+                    <td> {{ $user->name}}</td>
+                    <td> {{ $user->acesso}}</td>
+                    <td> 
+                        <a href="/user/edit/{{$user->id}}" class="btn btn-primary">Editar</a>
+                    </td>
+                    <td>
+                        <form action="/user/{{$user->id}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
     @endif
 </div>
 @endsection 
